@@ -1,9 +1,12 @@
-group 'org.thepun'
-version '1.0-SNAPSHOT'
+plugins {
+    id "co.riiid.gradle" version "0.4.2"
+}
 
 apply plugin: 'java'
 apply plugin: 'idea'
 
+group 'org.thepun'
+version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
@@ -23,4 +26,17 @@ idea {
         testOutputDir = file('build/idea_test')
         excludeDirs += file('.idea')
     }
+}
+
+github {
+    owner = 'thepun599'
+    repo = 'unsafe-utils'
+    token = '00c8cdce2b7afa3b647c8cf6e2cfd1acbd9bf7fd'
+    tagName = '0.1'
+    targetCommitish = 'master'
+    name = 'v1.0'
+    body = "release"
+    assets = [
+            'build/libs'
+    ]
 }
