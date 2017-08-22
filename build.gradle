@@ -1,6 +1,6 @@
-plugins {
+/*plugins {
     id "co.riiid.gradle" version "0.4.2"
-}
+}*/
 
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -29,6 +29,7 @@ idea {
     }
 }
 
+/*
 github {
     owner = 'thepun599'
     repo = 'unsafe-utils'
@@ -40,4 +41,4 @@ github {
     assets = [
             'build/libs'
     ]
-}
+}*/
