@@ -4,6 +4,7 @@ plugins {
 
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: "maven"
 
 group 'org.thepun'
 version '1.0-SNAPSHOT'
