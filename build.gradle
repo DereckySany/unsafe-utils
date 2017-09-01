@@ -29,6 +29,9 @@ idea {
     }
 }
 
+jar {
+    from sourceSets.main.allSource
+}
 /*
 github {
     owner = 'thepun599'
