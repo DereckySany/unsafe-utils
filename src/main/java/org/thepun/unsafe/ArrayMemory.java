@@ -34,7 +34,7 @@ public final class ArrayMemory {
     }
 
     public static void setIntOrdered(int[] array, int index, int element) {
-        UnsafeLocator.getUnsafe().putIntVolatile(array, INT_OFFSET + INT_SIZE * index, element);
+        UnsafeLocator.getUnsafe().putOrderedInt(array, INT_OFFSET + INT_SIZE * index, element);
     }
 
     public static boolean compareAndSwapInt(int[] array, int index, int expectedElement, int newElement) {
@@ -58,7 +58,7 @@ public final class ArrayMemory {
     }
 
     public static void setIntOrdered(int[] array, long offset, int element) {
-        UnsafeLocator.getUnsafe().putIntVolatile(array, offset, element);
+        UnsafeLocator.getUnsafe().putOrderedInt(array, offset, element);
     }
 
     public static boolean compareAndSwapInt(int[] array, long offset, int expectedElement, int newElement) {
@@ -82,7 +82,7 @@ public final class ArrayMemory {
     }
 
     public static void setLongOrdered(long[] array, int index, long element) {
-        UnsafeLocator.getUnsafe().putLongVolatile(array, LONG_OFFSET + LONG_SIZE * index, element);
+        UnsafeLocator.getUnsafe().putOrderedLong(array, LONG_OFFSET + LONG_SIZE * index, element);
     }
 
     public static boolean compareAndSwapLong(long[] array, int index, long expectedElement, long newElement) {
@@ -130,7 +130,7 @@ public final class ArrayMemory {
     }
 
     public static <T> void setObjectOrdered(T[] array, int index, T element) {
-        UnsafeLocator.getUnsafe().putObjectVolatile(array, OBJECT_OFFSET + OBJECT_SIZE * index, element);
+        UnsafeLocator.getUnsafe().putOrderedObject(array, OBJECT_OFFSET + OBJECT_SIZE * index, element);
     }
 
     public static <T> boolean compareAndSwapObject(T[] array, int index, T expectedElement, T newElement) {
