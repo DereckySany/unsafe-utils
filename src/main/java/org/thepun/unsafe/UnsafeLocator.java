@@ -4,6 +4,9 @@ import java.lang.reflect.Field;
 
 import sun.misc.Unsafe;
 
+/**
+ * Where Unsafe instance is stored.
+ */
 final class UnsafeLocator {
 
     private static final Unsafe INSTANCE;

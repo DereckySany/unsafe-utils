@@ -74,6 +74,14 @@ public class ObjectMemory {
         return UnsafeLocator.getUnsafe().compareAndSwapObject(object, fieldOffset, expectedValue, newValue);
     }
 
+    public static int getAndIncrementInt(Object object, long fieldOffset, int delta) {
+        return UnsafeLocator.getUnsafe().getAndAddInt(object, fieldOffset, delta);
+    }
+
+    public static long getAndIncrementLong(Object object, long fieldOffset, long delta) {
+        return UnsafeLocator.getUnsafe().getAndAddLong(object, fieldOffset, delta);
+    }
+
 
     private ObjectMemory() {
     }

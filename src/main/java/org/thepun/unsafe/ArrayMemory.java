@@ -61,10 +61,6 @@ public final class ArrayMemory {
         UnsafeLocator.getUnsafe().putOrderedInt(array, offset, element);
     }
 
-    public static boolean compareAndSwapInt(int[] array, long offset, int expectedElement, int newElement) {
-        return UnsafeLocator.getUnsafe().compareAndSwapInt(array, offset, expectedElement, newElement);
-    }
-
     public static long getLong(long[] array, int index) {
         return getLong(array, LONG_OFFSET + LONG_SIZE * index);
     }
