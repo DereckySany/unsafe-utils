@@ -41,6 +41,10 @@ public final class ArrayMemory {
         return UnsafeLocator.getUnsafe().compareAndSwapInt(array, INT_OFFSET + INT_SIZE * index, expectedElement, newElement);
     }
 
+    public static int getAndSetInt(int[] array, int index, int element) {
+        return UnsafeLocator.getUnsafe().getAndAddInt(array, INT_OFFSET + INT_SIZE * index, element);
+    }
+
     public static int getInt(int[] array, long offset) {
         return UnsafeLocator.getUnsafe().getInt(array, offset);
     }
@@ -59,6 +63,14 @@ public final class ArrayMemory {
 
     public static void setIntOrdered(int[] array, long offset, int element) {
         UnsafeLocator.getUnsafe().putOrderedInt(array, offset, element);
+    }
+
+    public static boolean compareAndSwapInt(int[] array, long offset, int expectedElement, int newElement) {
+        return UnsafeLocator.getUnsafe().compareAndSwapInt(array, offset, expectedElement, newElement);
+    }
+
+    public static int getAndSetInt(int[] array, long offset, int element) {
+        return UnsafeLocator.getUnsafe().getAndAddInt(array, offset, element);
     }
 
     public static long getLong(long[] array, int index) {
@@ -85,6 +97,10 @@ public final class ArrayMemory {
         return UnsafeLocator.getUnsafe().compareAndSwapLong(array, LONG_OFFSET + LONG_SIZE * index, expectedElement, newElement);
     }
 
+    public static long getAndSetLong(int[] array, int index, long element) {
+        return UnsafeLocator.getUnsafe().getAndSetLong(array, LONG_OFFSET + LONG_SIZE * index, element);
+    }
+
     public static long getLong(long[] array, long offset) {
         return UnsafeLocator.getUnsafe().getLong(array, offset);
     }
@@ -107,6 +123,10 @@ public final class ArrayMemory {
 
     public static boolean compareAndSwapLong(long[] array, long offset, long expectedElement, long newElement) {
         return UnsafeLocator.getUnsafe().compareAndSwapLong(array, offset, expectedElement, newElement);
+    }
+
+    public static long getAndSetLong(int[] array, long offset, long element) {
+        return UnsafeLocator.getUnsafe().getAndSetLong(array, offset, element);
     }
 
     public static <T> T getObject(T[] array, int index) {
@@ -133,6 +153,10 @@ public final class ArrayMemory {
         return UnsafeLocator.getUnsafe().compareAndSwapObject(array, OBJECT_OFFSET + OBJECT_SIZE * index, expectedElement, newElement);
     }
 
+    public static <T> T getAndSetObject(int[] array, int index, T element) {
+        return (T) UnsafeLocator.getUnsafe().getAndSetObject(array, OBJECT_OFFSET + OBJECT_SIZE * index, element);
+    }
+
     public static <T> T getObject(T[] array, long offset) {
         return (T) UnsafeLocator.getUnsafe().getObject(array, offset);
     }
@@ -155,6 +179,10 @@ public final class ArrayMemory {
 
     public static <T> boolean compareAndSwapObject(T[] array, long offset, T expectedElement, T newElement) {
         return UnsafeLocator.getUnsafe().compareAndSwapObject(array, offset, expectedElement, newElement);
+    }
+
+    public static <T> T getAndSetObject(int[] array, long offset, T element) {
+        return (T) UnsafeLocator.getUnsafe().getAndSetObject(array, offset, element);
     }
 
 
