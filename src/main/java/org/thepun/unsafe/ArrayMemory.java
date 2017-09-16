@@ -9,8 +9,8 @@ package org.thepun.unsafe;
  */
 public final class ArrayMemory {
 
-    private static final int INT_SIZE = ArrayMemoryLayout.getElementSize(Object[].class);
-    private static final int LONG_SIZE = ArrayMemoryLayout.getElementSize(Object[].class);
+    private static final int INT_SIZE = ArrayMemoryLayout.getElementSize(int[].class);
+    private static final int LONG_SIZE = ArrayMemoryLayout.getElementSize(long[].class);
     private static final int OBJECT_SIZE = ArrayMemoryLayout.getElementSize(Object[].class);
     private static final long INT_OFFSET = ArrayMemoryLayout.getElementOffset(int[].class, 0);
     private static final long LONG_OFFSET = ArrayMemoryLayout.getElementOffset(long[].class, 0);
