@@ -5,7 +5,7 @@ package org.thepun.unsafe;
  *
  * Index is ordinary array index.
  *
- * Offset is calculated as ELEMENT_SIZE * INDEX + FIRST_ELEMENT_OFFSET. Element size and first element offset can be calculated with ArrayMemoryLayout class.
+ * Offset is calculated as ELEMENT_SIZE * INDEX + FIRST_ELEMENT_OFFSET. Element size and first element offset can be calculated with {@link ArrayMemoryLayout} class.
  */
 public final class ArrayMemory {
 
@@ -42,7 +42,7 @@ public final class ArrayMemory {
     }
 
     public static int getAndSetInt(int[] array, int index, int element) {
-        return UnsafeLocator.getUnsafe().getAndAddInt(array, INT_OFFSET + INT_SIZE * index, element);
+        return UnsafeLocator.getUnsafe().getAndSetInt(array, INT_OFFSET + INT_SIZE * index, element);
     }
 
     public static int getInt(int[] array, long offset) {
@@ -70,7 +70,7 @@ public final class ArrayMemory {
     }
 
     public static int getAndSetInt(int[] array, long offset, int element) {
-        return UnsafeLocator.getUnsafe().getAndAddInt(array, offset, element);
+        return UnsafeLocator.getUnsafe().getAndSetInt(array, offset, element);
     }
 
     public static long getLong(long[] array, int index) {

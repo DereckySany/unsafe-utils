@@ -1,5 +1,12 @@
 package org.thepun.unsafe;
 
+/**
+ * Allows to get internal sizes of class fields.
+ *
+ * Object layout:
+ *  [ header ] [ field0 ] [ field1 ]  ... [ field2 ]
+ *
+ */
 public final class ObjectMemoryLayout {
 
     public static <T> long getFieldOffset(Class<T> type, String fieldName) {

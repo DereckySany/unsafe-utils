@@ -1,5 +1,10 @@
 package org.thepun.unsafe;
 
+/**
+ * Utility class for accessing object memory.
+ *
+ * All methods require fieldOffset which can be retrieved by {@link ObjectMemoryLayout} and cached.
+ */
 public class ObjectMemory {
 
     public static int getInt(Object object, long fieldOffset) {

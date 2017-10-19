@@ -4,11 +4,13 @@
 
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: "maven"
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 group 'org.thepun'
-version '1.0-SNAPSHOT'
-sourceCompatibility = 1.8
+version '0.1'
+sourceCompatibility = 1.9
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -20,28 +22,30 @@ dependencies {
 
 idea {
     module {
-        jdkName = '1.8'
         downloadJavadoc = true
         downloadSources = true
+        inheritOutputDirs = false
         outputDir = file('build/idea')
         testOutputDir = file('build/idea_test')
         excludeDirs += file('.idea')
     }
 }
 
-jar {
-    from sourceSets.main.allSource
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
 }
-/*
-github {
-    owner = 'thepun599'
-    repo = 'unsafe-utils'
-    token = '00c8cdce2b7afa3b647c8cf6e2cfd1acbd9bf7fd'
-    tagName = '0.1'
-    targetCommitish = 'master'
-    name = 'v1.0'
-    body = "release"
-    assets = [
-            'build/libs'
-    ]
-}*/
+
+publishing {
+    publications {
+        mavenJar(MavenPublication) {
+            from components.java
+        }
+        mavenSource(MavenPublication) {
+            from components.java
+
+            artifact sourceJar {
+                classifier "sources"
+            }
+        }
+    }
+}
