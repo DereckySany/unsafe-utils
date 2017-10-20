@@ -1,4 +1,4 @@
-package org.thepun.unsafe;
+package io.github.thepun.unsafe;
 
 /**
  * Utility class for placing memory barriers

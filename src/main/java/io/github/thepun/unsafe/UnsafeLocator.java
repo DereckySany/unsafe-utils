@@ -1,4 +1,4 @@
-package org.thepun.unsafe;
+package io.github.thepun.unsafe;
 
 import java.lang.reflect.Field;
 
@@ -22,6 +22,10 @@ final class UnsafeLocator {
 
     static Unsafe getUnsafe() {
         return INSTANCE;
+    }
+
+
+    private UnsafeLocator() {
     }
 
 }

@@ -1,4 +1,4 @@
-package org.thepun.unsafe;
+package io.github.thepun.unsafe;
 
 /**
  * Utility class for accessing object memory.
@@ -79,11 +79,23 @@ public class ObjectMemory {
         return UnsafeLocator.getUnsafe().compareAndSwapObject(object, fieldOffset, expectedValue, newValue);
     }
 
-    public static int getAndIncrementInt(Object object, long fieldOffset, int delta) {
+    public static int getAndSetInt(Object object, long fieldOffset, int value) {
+        return UnsafeLocator.getUnsafe().getAndSetInt(object, fieldOffset, value);
+    }
+
+    public static long getAndSetLong(Object object, long fieldOffset, long value) {
+        return UnsafeLocator.getUnsafe().getAndSetLong(object, fieldOffset, value);
+    }
+
+    public static Object getAndSetObject(Object object, long fieldOffset, Object value) {
+        return UnsafeLocator.getUnsafe().getAndSetObject(object, fieldOffset, value);
+    }
+
+    public static int getAndAddInt(Object object, long fieldOffset, int delta) {
         return UnsafeLocator.getUnsafe().getAndAddInt(object, fieldOffset, delta);
     }
 
-    public static long getAndIncrementLong(Object object, long fieldOffset, long delta) {
+    public static long getAndAddLong(Object object, long fieldOffset, long delta) {
         return UnsafeLocator.getUnsafe().getAndAddLong(object, fieldOffset, delta);
     }
 

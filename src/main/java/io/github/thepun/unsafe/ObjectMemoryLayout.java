@@ -1,4 +1,4 @@
-package org.thepun.unsafe;
+package io.github.thepun.unsafe;
 
 /**
  * Allows to get internal sizes of class fields.

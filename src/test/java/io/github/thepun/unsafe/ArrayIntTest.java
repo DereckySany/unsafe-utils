@@ -1,4 +1,4 @@
-package org.thepun.unsafe;
+package io.github.thepun.unsafe;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

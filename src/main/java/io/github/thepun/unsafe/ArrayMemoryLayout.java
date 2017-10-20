@@ -1,4 +1,4 @@
-package org.thepun.unsafe;
+package io.github.thepun.unsafe;
 
 /**
  * Allows to get internal sizes of array structure.
@@ -27,7 +27,6 @@ public final class ArrayMemoryLayout {
 
         return UnsafeLocator.getUnsafe().arrayIndexScale(arrayClass);
     }
-
 
 
     private ArrayMemoryLayout() {

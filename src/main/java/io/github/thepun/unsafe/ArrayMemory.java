@@ -1,4 +1,4 @@
-package org.thepun.unsafe;
+package io.github.thepun.unsafe;
 
 /**
  * Utility class for accessing array memory.
@@ -45,6 +45,10 @@ public final class ArrayMemory {
         return UnsafeLocator.getUnsafe().getAndSetInt(array, INT_OFFSET + INT_SIZE * index, element);
     }
 
+    public static int getAndAddInt(int[] array, int index, int element) {
+        return UnsafeLocator.getUnsafe().getAndAddInt(array, INT_OFFSET + INT_SIZE * index, element);
+    }
+
     public static int getInt(int[] array, long offset) {
         return UnsafeLocator.getUnsafe().getInt(array, offset);
     }
@@ -71,6 +75,10 @@ public final class ArrayMemory {
 
     public static int getAndSetInt(int[] array, long offset, int element) {
         return UnsafeLocator.getUnsafe().getAndSetInt(array, offset, element);
+    }
+
+    public static int getAndAddInt(int[] array, long offset, int element) {
+        return UnsafeLocator.getUnsafe().getAndAddInt(array, offset, element);
     }
 
     public static long getLong(long[] array, int index) {
@@ -101,6 +109,10 @@ public final class ArrayMemory {
         return UnsafeLocator.getUnsafe().getAndSetLong(array, LONG_OFFSET + LONG_SIZE * index, element);
     }
 
+    public static long getAndAddLong(long[] array, int index, long element) {
+        return UnsafeLocator.getUnsafe().getAndAddLong(array, LONG_OFFSET + LONG_SIZE * index, element);
+    }
+
     public static long getLong(long[] array, long offset) {
         return UnsafeLocator.getUnsafe().getLong(array, offset);
     }
@@ -127,6 +139,10 @@ public final class ArrayMemory {
 
     public static long getAndSetLong(long[] array, long offset, long element) {
         return UnsafeLocator.getUnsafe().getAndSetLong(array, offset, element);
+    }
+
+    public static long getAndAddLong(long[] array, long offset, long element) {
+        return UnsafeLocator.getUnsafe().getAndAddLong(array, offset, element);
     }
 
     public static <T> T getObject(T[] array, int index) {
