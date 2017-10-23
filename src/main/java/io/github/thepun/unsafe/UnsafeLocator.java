@@ -16,7 +16,7 @@ final class UnsafeLocator {
             singleoneInstanceField.setAccessible(true);
             INSTANCE = (Unsafe) singleoneInstanceField.get(null);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to find Unsafe instance", e);
         }
     }
 
