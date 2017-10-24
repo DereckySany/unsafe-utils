@@ -11,7 +11,7 @@ public class ObjectAccessTest {
         TestClass obj = new TestClass();
         obj.intField = 123;
 
-        long intField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "intField");
+        long intField = ObjectMemory.fieldOffset(TestClass.class, "intField");
         int value = ObjectMemory.getInt(obj, intField);
         assertEquals(123, value);
     }
@@ -21,7 +21,7 @@ public class ObjectAccessTest {
         TestClass obj = new TestClass();
         obj.intField = 6789;
 
-        long intField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "intField");
+        long intField = ObjectMemory.fieldOffset(TestClass.class, "intField");
         int value = ObjectMemory.getIntVolatile(obj, intField);
         assertEquals(6789, value);
     }
@@ -31,7 +31,7 @@ public class ObjectAccessTest {
         TestClass obj = new TestClass();
         obj.longField = 4567891234L;
 
-        long longField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "longField");
+        long longField = ObjectMemory.fieldOffset(TestClass.class, "longField");
         long value = ObjectMemory.getLong(obj, longField);
         assertEquals(4567891234L, value);
     }
@@ -41,7 +41,7 @@ public class ObjectAccessTest {
         TestClass obj = new TestClass();
         obj.longField = 6754524L;
 
-        long longField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "longField");
+        long longField = ObjectMemory.fieldOffset(TestClass.class, "longField");
         long value = ObjectMemory.getLongVolatile(obj, longField);
         assertEquals(6754524L, value);
     }
@@ -51,7 +51,7 @@ public class ObjectAccessTest {
         TestClass obj = new TestClass();
         obj.objectField = "asdfasdfgasdfg";
 
-        long objectField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "objectField");
+        long objectField = ObjectMemory.fieldOffset(TestClass.class, "objectField");
         Object value = ObjectMemory.getObject(obj, objectField);
         assertEquals("asdfasdfgasdfg", value);
     }
@@ -61,7 +61,7 @@ public class ObjectAccessTest {
         TestClass obj = new TestClass();
         obj.objectField = "uyioyuijo";
 
-        long objectField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "objectField");
+        long objectField = ObjectMemory.fieldOffset(TestClass.class, "objectField");
         Object value = ObjectMemory.getObjectVolatile(obj, objectField);
         assertEquals("uyioyuijo", value);
     }
@@ -70,7 +70,7 @@ public class ObjectAccessTest {
     public void setInt() {
         TestClass obj = new TestClass();
 
-        long intField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "intField");
+        long intField = ObjectMemory.fieldOffset(TestClass.class, "intField");
         ObjectMemory.setInt(obj, intField, 456);
 
         assertEquals(456, obj.intField);
@@ -80,7 +80,7 @@ public class ObjectAccessTest {
     public void setIntVolatile() {
         TestClass obj = new TestClass();
 
-        long intField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "intField");
+        long intField = ObjectMemory.fieldOffset(TestClass.class, "intField");
         ObjectMemory.setIntVolatile(obj, intField, 333);
 
         assertEquals(333, obj.intField);
@@ -90,7 +90,7 @@ public class ObjectAccessTest {
     public void setIntOrdered() {
         TestClass obj = new TestClass();
 
-        long intField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "intField");
+        long intField = ObjectMemory.fieldOffset(TestClass.class, "intField");
         ObjectMemory.setIntOrdered(obj, intField, 88888);
 
         assertEquals(88888, obj.intField);
@@ -100,7 +100,7 @@ public class ObjectAccessTest {
     public void setLong() {
         TestClass obj = new TestClass();
 
-        long longField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "longField");
+        long longField = ObjectMemory.fieldOffset(TestClass.class, "longField");
         ObjectMemory.setLong(obj, longField, 98765432198L);
 
         assertEquals(98765432198L, obj.longField);
@@ -110,7 +110,7 @@ public class ObjectAccessTest {
     public void setLongVolatile() {
         TestClass obj = new TestClass();
 
-        long longField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "longField");
+        long longField = ObjectMemory.fieldOffset(TestClass.class, "longField");
         ObjectMemory.setLongVolatile(obj, longField, 32423456432198L);
 
         assertEquals(32423456432198L, obj.longField);
@@ -120,7 +120,7 @@ public class ObjectAccessTest {
     public void setLongOrdered() {
         TestClass obj = new TestClass();
 
-        long longField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "longField");
+        long longField = ObjectMemory.fieldOffset(TestClass.class, "longField");
         ObjectMemory.setLongOrdered(obj, longField, 54656565198L);
 
         assertEquals(54656565198L, obj.longField);
@@ -130,7 +130,7 @@ public class ObjectAccessTest {
     public void setObject() {
         TestClass obj = new TestClass();
 
-        long objectField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "objectField");
+        long objectField = ObjectMemory.fieldOffset(TestClass.class, "objectField");
         ObjectMemory.setObject(obj, objectField, "mnbvcxz");
 
         assertEquals("mnbvcxz", obj.objectField);
@@ -140,7 +140,7 @@ public class ObjectAccessTest {
     public void setObjectVolatile() {
         TestClass obj = new TestClass();
 
-        long objectField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "objectField");
+        long objectField = ObjectMemory.fieldOffset(TestClass.class, "objectField");
         ObjectMemory.setObjectVolatile(obj, objectField, "zndnznzdnf");
 
         assertEquals("zndnznzdnf", obj.objectField);
@@ -150,7 +150,7 @@ public class ObjectAccessTest {
     public void setObjectOrdered() {
         TestClass obj = new TestClass();
 
-        long objectField = ObjectMemoryLayout.getFieldOffset(TestClass.class, "objectField");
+        long objectField = ObjectMemory.fieldOffset(TestClass.class, "objectField");
         ObjectMemory.setObjectOrdered(obj, objectField, "sdfdfhdrfhg");
 
         assertEquals("sdfdfhdrfhg", obj.objectField);
