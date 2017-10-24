@@ -4,7 +4,7 @@ import java.util.logging.Level;
 
 import org.junit.Test;
 
-public class LayoutErrorsTest {
+public class ObjectErrorsTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void unknownField() {

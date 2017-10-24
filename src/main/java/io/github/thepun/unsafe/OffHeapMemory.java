@@ -10,6 +10,10 @@ import sun.misc.Unsafe;
 public class OffHeapMemory {
 
     private static final Unsafe UNSAFE_INSTANCE = UnsafeLocator.getUnsafe();
+    private static final int INT_SIZE = SystemTypeSizes.intSize();
+    private static final int LONG_SIZE = SystemTypeSizes.longSize();
+    private static final int SHORT_SIZE = SystemTypeSizes.longSize();
+    private static final int CHAR_SIZE = SystemTypeSizes.longSize();
 
     public static long allocate(int size) {
         return UNSAFE_INSTANCE.allocateMemory(size);
@@ -32,7 +36,7 @@ public class OffHeapMemory {
     }
 
     public static char getChar(long address, int index) {
-        return UNSAFE_INSTANCE.getChar(address + index * 2);
+        return UNSAFE_INSTANCE.getChar(address + index * CHAR_SIZE);
     }
 
     public static short getShort(long address) {
@@ -40,7 +44,7 @@ public class OffHeapMemory {
     }
 
     public static short getShort(long address, int index) {
-        return UNSAFE_INSTANCE.getShort(address + index * 2);
+        return UNSAFE_INSTANCE.getShort(address + index * SHORT_SIZE);
     }
 
     public static int getInt(long address) {
@@ -48,7 +52,7 @@ public class OffHeapMemory {
     }
 
     public static int getInt(long address, int index) {
-        return UNSAFE_INSTANCE.getInt(address, address + index * 4);
+        return UNSAFE_INSTANCE.getInt(address + index * INT_SIZE);
     }
 
     public static long getLong(long address) {
@@ -56,7 +60,7 @@ public class OffHeapMemory {
     }
 
     public static long getLong(long address, int index) {
-        return UNSAFE_INSTANCE.getLong(address, address + index * 8);
+        return UNSAFE_INSTANCE.getLong(address + index * LONG_SIZE);
     }
 
     public static void setByte(long address, byte value) {
@@ -72,7 +76,7 @@ public class OffHeapMemory {
     }
 
     public static void setChar(long address, int index, char value) {
-        UNSAFE_INSTANCE.putChar(address + index * 2, value);
+        UNSAFE_INSTANCE.putChar(address + index * CHAR_SIZE, value);
     }
 
     public static void setShort(long address, short value) {
@@ -80,7 +84,7 @@ public class OffHeapMemory {
     }
 
     public static void setShort(long address, int index, short value) {
-        UNSAFE_INSTANCE.putShort(address + index * 2, value);
+        UNSAFE_INSTANCE.putShort(address + index * SHORT_SIZE, value);
     }
 
     public static void setInt(long address, int value) {
@@ -96,8 +100,9 @@ public class OffHeapMemory {
     }
 
     public static void setLong(long address, int index, long value) {
-        UNSAFE_INSTANCE.putLong(address + index * 8, value);
+        UNSAFE_INSTANCE.putLong(address + index * LONG_SIZE, value);
     }
+
 
     private OffHeapMemory() {
     }
