@@ -1,10 +1,13 @@
-apply plugin: 'java-library'
+plugins {
+    id "com.github.hierynomus.license" version"0.14.0"
+}
 
+apply plugin: 'java-library'
 apply from: 'ide.gradle'
 apply from: 'publish.gradle'
 
 group 'io.github.thepun'
-version '1.0-SNAPSHOT'
+version '1.0'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
