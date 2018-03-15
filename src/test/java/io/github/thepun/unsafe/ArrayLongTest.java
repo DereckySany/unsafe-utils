@@ -42,7 +42,7 @@ public class ArrayLongTest {
 
     @Test
     public void getByOffset() {
-        long offset = SystemTypeSizes.longSize() * 2 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofLong() * 2 + ArrayMemory.firstElementOffset();
         long value = ArrayMemory.getLong(array, offset);
         assertEquals(2, value);
     }
@@ -55,7 +55,7 @@ public class ArrayLongTest {
 
     @Test
     public void getVolatileByOffset() {
-        long offset = SystemTypeSizes.longSize() * 11 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofLong() * 11 + ArrayMemory.firstElementOffset();
         long value = ArrayMemory.getLongVolatile(array, offset);
         assertEquals(11, value);
     }
@@ -69,7 +69,7 @@ public class ArrayLongTest {
 
     @Test
     public void setByOffset() {
-        long offset = SystemTypeSizes.longSize() * 66 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofLong() * 66 + ArrayMemory.firstElementOffset();
         ArrayMemory.setLong(array, offset, 4567);
         long value = array[66];
         assertEquals(4567, value);
@@ -84,7 +84,7 @@ public class ArrayLongTest {
 
     @Test
     public void setVolatileByOffset() {
-        long offset = SystemTypeSizes.longSize() * 34 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofLong() * 34 + ArrayMemory.firstElementOffset();
         ArrayMemory.setLongVolatile(array, offset, 1234);
         long value = array[34];
         assertEquals(1234, value);
@@ -99,7 +99,7 @@ public class ArrayLongTest {
 
     @Test
     public void setOrderedByOffset() {
-        long offset = SystemTypeSizes.longSize() * 55 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofLong() * 55 + ArrayMemory.firstElementOffset();
         ArrayMemory.setLongOrdered(array, offset, 87);
         long value = array[55];
         assertEquals(87, value);
@@ -116,7 +116,7 @@ public class ArrayLongTest {
 
     @Test
     public void casSuccessByOffset() {
-        long offset = SystemTypeSizes.longSize() * 91 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofLong() * 91 + ArrayMemory.firstElementOffset();
         boolean cas = ArrayMemory.compareAndSwapLong(array, offset, 91, 2);
         assertTrue(cas);
 
@@ -135,7 +135,7 @@ public class ArrayLongTest {
 
     @Test
     public void casFailureByOffset() {
-        long offset = SystemTypeSizes.longSize() * 43 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofLong() * 43 + ArrayMemory.firstElementOffset();
         boolean cas = ArrayMemory.compareAndSwapLong(array, offset, 77, 456);
         assertFalse(cas);
 

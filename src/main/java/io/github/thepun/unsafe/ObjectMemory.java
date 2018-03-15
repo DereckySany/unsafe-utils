@@ -49,6 +49,10 @@ public class ObjectMemory {
         return UNSAFE_INSTANCE.getLong(object, fieldOffset);
     }
 
+    public static double getDouble(Object object, long fieldOffset) {
+        return UNSAFE_INSTANCE.getDouble(object, fieldOffset);
+    }
+
     public static Object getObject(Object object, long fieldOffset) {
         return UNSAFE_INSTANCE.getObject(object, fieldOffset);
     }
@@ -59,6 +63,10 @@ public class ObjectMemory {
 
     public static void setLong(Object object, long fieldOffset, long newValue) {
         UNSAFE_INSTANCE.putLong(object, fieldOffset, newValue);
+    }
+
+    public static void setDouble(Object object, long fieldOffset, double newValue) {
+        UNSAFE_INSTANCE.putDouble(object, fieldOffset, newValue);
     }
 
     public static void setObject(Object object, long fieldOffset, Object newValue) {
@@ -73,6 +81,10 @@ public class ObjectMemory {
         return UNSAFE_INSTANCE.getLongVolatile(object, fieldOffset);
     }
 
+    public static double getDoubleVolatile(Object object, long fieldOffset) {
+        return UNSAFE_INSTANCE.getDoubleVolatile(object, fieldOffset);
+    }
+
     public static Object getObjectVolatile(Object object, long fieldOffset) {
         return UNSAFE_INSTANCE.getObjectVolatile(object, fieldOffset);
     }
@@ -85,6 +97,10 @@ public class ObjectMemory {
         UNSAFE_INSTANCE.putLongVolatile(object, fieldOffset, newValue);
     }
 
+    public static void setDoubleVolatile(Object object, long fieldOffset, double newValue) {
+        UNSAFE_INSTANCE.putDoubleVolatile(object, fieldOffset, newValue);
+    }
+
     public static void setObjectVolatile(Object object, long fieldOffset, Object newValue) {
         UNSAFE_INSTANCE.putObjectVolatile(object, fieldOffset, newValue);
     }
@@ -95,6 +111,10 @@ public class ObjectMemory {
 
     public static void setLongOrdered(Object object, long fieldOffset, long newValue) {
         UNSAFE_INSTANCE.putLongVolatile(object, fieldOffset, newValue);
+    }
+
+    public static void setDoubleOrdered(Object object, long fieldOffset, double newValue) {
+        UNSAFE_INSTANCE.putDoubleVolatile(object, fieldOffset, newValue);
     }
 
     public static void setObjectOrdered(Object object, long fieldOffset, Object newValue) {

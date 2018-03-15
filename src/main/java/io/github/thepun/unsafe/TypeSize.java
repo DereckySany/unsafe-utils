@@ -17,12 +17,13 @@ package io.github.thepun.unsafe;
 
 import sun.misc.Unsafe;
 
-public class SystemTypeSizes {
+public class TypeSize {
 
     private static final int INT_SIZE;
     private static final int LONG_SIZE;
     private static final int SHORT_SIZE;
     private static final int CHAR_SIZE;
+    private static final int DOUBLE_SIZE;
     private static final int REFERENCE_SIZE;
     static {
         Unsafe unsafe = UnsafeLocator.getUnsafe();
@@ -30,30 +31,39 @@ public class SystemTypeSizes {
         LONG_SIZE = unsafe.arrayIndexScale(long[].class);
         SHORT_SIZE = unsafe.arrayIndexScale(short[].class);
         CHAR_SIZE = unsafe.arrayIndexScale(char[].class);
+        DOUBLE_SIZE = unsafe.arrayIndexScale(double[].class);
         REFERENCE_SIZE = unsafe.arrayIndexScale(Object[].class);
     }
 
-    public static int intSize() {
+    public static int ofInt() {
         return INT_SIZE;
     }
 
-    public static int longSize() {
+    public static int ofLong() {
         return LONG_SIZE;
     }
 
-    public static int charSize() {
-        return CHAR_SIZE;
-    }
-
-    public static int shortSize() {
+    public static int ofShort() {
         return SHORT_SIZE;
     }
 
-    public static int referenceSize() {
+    public static int ofChar() {
+        return CHAR_SIZE;
+    }
+
+    public static int ofDouble() {
+        return DOUBLE_SIZE;
+    }
+
+    public static int ofReference() {
         return REFERENCE_SIZE;
     }
 
+    public static int ofObject(Class<?> type) {
+        return -1;
+    }
 
-    private SystemTypeSizes() {
+
+    private TypeSize() {
     }
 }
