@@ -25,7 +25,7 @@ import sun.misc.Unsafe;
  *
  * All methods require fieldOffset which can be retrieved by fieldOffset and cached.
  */
-public class ObjectMemory {
+public final class ObjectMemory {
 
     private static final Unsafe UNSAFE_INSTANCE = UnsafeLocator.getUnsafe();
 

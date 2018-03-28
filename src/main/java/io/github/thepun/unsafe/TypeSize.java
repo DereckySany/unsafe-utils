@@ -17,12 +17,13 @@ package io.github.thepun.unsafe;
 
 import sun.misc.Unsafe;
 
-public class TypeSize {
+public final class TypeSize {
 
     private static final int INT_SIZE;
     private static final int LONG_SIZE;
     private static final int SHORT_SIZE;
     private static final int CHAR_SIZE;
+    private static final int FLOAT_SIZE;
     private static final int DOUBLE_SIZE;
     private static final int REFERENCE_SIZE;
     static {
@@ -31,6 +32,7 @@ public class TypeSize {
         LONG_SIZE = unsafe.arrayIndexScale(long[].class);
         SHORT_SIZE = unsafe.arrayIndexScale(short[].class);
         CHAR_SIZE = unsafe.arrayIndexScale(char[].class);
+        FLOAT_SIZE = unsafe.arrayIndexScale(float[].class);
         DOUBLE_SIZE = unsafe.arrayIndexScale(double[].class);
         REFERENCE_SIZE = unsafe.arrayIndexScale(Object[].class);
     }
@@ -51,16 +53,16 @@ public class TypeSize {
         return CHAR_SIZE;
     }
 
+    public static int ofFloat() {
+        return FLOAT_SIZE;
+    }
+
     public static int ofDouble() {
         return DOUBLE_SIZE;
     }
 
     public static int ofReference() {
         return REFERENCE_SIZE;
-    }
-
-    public static int ofObject(Class<?> type) {
-        return -1;
     }
 
 
