@@ -32,9 +32,9 @@ import sun.misc.Unsafe;
 public final class ArrayMemory {
 
     private static final Unsafe UNSAFE_INSTANCE = UnsafeLocator.getUnsafe();
-    private static final int INT_SIZE = SystemTypeSizes.intSize();
-    private static final int LONG_SIZE = SystemTypeSizes.longSize();
-    private static final int OBJECT_SIZE = SystemTypeSizes.referenceSize();
+    private static final int INT_SIZE = TypeSize.ofInt();
+    private static final int LONG_SIZE = TypeSize.ofLong();
+    private static final int OBJECT_SIZE = TypeSize.ofReference();
     private static final long FIRST_ELEMENT_OFFSET = UNSAFE_INSTANCE.arrayBaseOffset(int[].class);
 
     public static <T> long firstElementOffset() {

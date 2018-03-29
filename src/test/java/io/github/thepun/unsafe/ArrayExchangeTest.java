@@ -40,7 +40,7 @@ public class ArrayExchangeTest {
         int[] array = new int[100];
         array[33] = 98;
 
-        long offset = SystemTypeSizes.intSize() * 33 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofInt() * 33 + ArrayMemory.firstElementOffset();
         int prevValue = ArrayMemory.getAndSetInt(array, offset, 6666);
         assertEquals(98, prevValue);
 
@@ -65,7 +65,7 @@ public class ArrayExchangeTest {
         int[] array = new int[100];
         array[66] = 1234;
 
-        long offset = SystemTypeSizes.intSize() * 66 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofInt() * 66 + ArrayMemory.firstElementOffset();
         int prevValue = ArrayMemory.getAndAddInt(array, offset, 555);
         assertEquals(1234, prevValue);
 
@@ -90,7 +90,7 @@ public class ArrayExchangeTest {
         long[] array = new long[100];
         array[76] = 2345345L;
 
-        long offset = SystemTypeSizes.longSize() * 76 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofLong() * 76 + ArrayMemory.firstElementOffset();
         long prevValue = ArrayMemory.getAndSetLong(array, offset, 88888888L);
         assertEquals(2345345L, prevValue);
 
@@ -115,7 +115,7 @@ public class ArrayExchangeTest {
         long[] array = new long[100];
         array[94] = 65785678L;
 
-        long offset = SystemTypeSizes.longSize() * 94 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofLong() * 94 + ArrayMemory.firstElementOffset();
         long prevValue = ArrayMemory.getAndAddLong(array, offset, 5524356456L);
         assertEquals(65785678L, prevValue);
 
@@ -140,7 +140,7 @@ public class ArrayExchangeTest {
         Object[] array = new Object[100];
         array[13] = "sdfgsdgfdgsdfg";
 
-        long offset = SystemTypeSizes.referenceSize() * 13 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.ofReference() * 13 + ArrayMemory.firstElementOffset();
         Object prevValue = ArrayMemory.getAndSetObject(array, offset, "zzzzzz");
         assertEquals("sdfgsdgfdgsdfg", prevValue);
 
