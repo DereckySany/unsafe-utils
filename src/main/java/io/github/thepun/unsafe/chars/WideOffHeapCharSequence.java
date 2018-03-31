@@ -3,16 +3,16 @@ package io.github.thepun.unsafe.chars;
 import io.github.thepun.unsafe.OffHeapMemory;
 import io.github.thepun.unsafe.TypeSize;
 
-public final class Utf16OffHeapCharSequence implements CharSequence {
+public final class WideOffHeapCharSequence implements CharSequence {
 
     private long address;
     private int length;
 
-    public Utf16OffHeapCharSequence() {
+    public WideOffHeapCharSequence() {
         this(0,0);
     }
 
-    public Utf16OffHeapCharSequence(long address, int length) {
+    public WideOffHeapCharSequence(long address, int length) {
         setAddress(address, length);
     }
 
@@ -32,8 +32,8 @@ public final class Utf16OffHeapCharSequence implements CharSequence {
     }
 
     @Override
-    public Utf16OffHeapCharSequence subSequence(int start, int end) {
-        return new Utf16OffHeapCharSequence(address + start * TypeSize.ofChar(), end - start);
+    public WideOffHeapCharSequence subSequence(int start, int end) {
+        return new WideOffHeapCharSequence(address + start * TypeSize.ofChar(), end - start);
     }
 
     @Override

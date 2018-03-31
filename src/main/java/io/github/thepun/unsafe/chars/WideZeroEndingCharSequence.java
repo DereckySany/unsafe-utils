@@ -3,17 +3,17 @@ package io.github.thepun.unsafe.chars;
 import io.github.thepun.unsafe.OffHeapMemory;
 import io.github.thepun.unsafe.TypeSize;
 
-public final class Utf16ZeroEndingCharSequence implements CharSequence {
+public final class WideZeroEndingCharSequence implements CharSequence {
 
     private long address;
     private int length;
 
-    public Utf16ZeroEndingCharSequence() {
+    public WideZeroEndingCharSequence() {
         length = 0;
         address = 0;
     }
 
-    public Utf16ZeroEndingCharSequence(long address, int maxLnegth) {
+    public WideZeroEndingCharSequence(long address, int maxLnegth) {
         setAddress(address, maxLnegth);
     }
 
@@ -33,8 +33,8 @@ public final class Utf16ZeroEndingCharSequence implements CharSequence {
     }
 
     @Override
-    public Utf16OffHeapCharSequence subSequence(int start, int end) {
-        return new Utf16OffHeapCharSequence(address + start * TypeSize.ofChar(), end - start);
+    public WideOffHeapCharSequence subSequence(int start, int end) {
+        return new WideOffHeapCharSequence(address + start * TypeSize.ofChar(), end - start);
     }
 
     @Override
@@ -47,8 +47,8 @@ public final class Utf16ZeroEndingCharSequence implements CharSequence {
     private void scanForZero(int maxLnegth) {
         int k = 0;
 
-        long maxAddress = address + maxLnegth * TypeSize.ofChar();
-        for (long i = address; i < maxAddress; i += TypeSize.ofChar()) {
+        long currentAddress = address + maxLnegth * TypeSize.ofChar();
+        for (long i = address; i < currentAddress; i += TypeSize.ofChar()) {
             char c = OffHeapMemory.getChar(i);
             if (c == 0) {
                 length = k;

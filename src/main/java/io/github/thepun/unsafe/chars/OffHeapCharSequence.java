@@ -4,16 +4,16 @@ import io.github.thepun.unsafe.OffHeapMemory;
 
 import java.nio.charset.StandardCharsets;
 
-public final class AsciiOffHeapCharSequence implements CharSequence {
+public final class OffHeapCharSequence implements CharSequence {
 
     private long address;
     private int length;
 
-    public AsciiOffHeapCharSequence() {
+    public OffHeapCharSequence() {
         this(0,0);
     }
 
-    public AsciiOffHeapCharSequence(long address, int length) {
+    public OffHeapCharSequence(long address, int length) {
         setAddress(address, length);
     }
 
@@ -33,8 +33,8 @@ public final class AsciiOffHeapCharSequence implements CharSequence {
     }
 
     @Override
-    public AsciiOffHeapCharSequence subSequence(int start, int end) {
-        return new AsciiOffHeapCharSequence(address + start, end - start);
+    public OffHeapCharSequence subSequence(int start, int end) {
+        return new OffHeapCharSequence(address + start, end - start);
     }
 
     @Override

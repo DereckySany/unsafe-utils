@@ -4,17 +4,17 @@ import io.github.thepun.unsafe.OffHeapMemory;
 
 import java.nio.charset.StandardCharsets;
 
-public final class AsciiZeroEndingCharSequence implements CharSequence {
+public final class ZeroEndingCharSequence implements CharSequence {
 
     private long address;
     private int length;
 
-    public AsciiZeroEndingCharSequence() {
+    public ZeroEndingCharSequence() {
         length = 0;
         address = 0;
     }
 
-    public AsciiZeroEndingCharSequence(long address, int maxLnegth) {
+    public ZeroEndingCharSequence(long address, int maxLnegth) {
         setAddress(address, maxLnegth);
     }
 
@@ -34,8 +34,8 @@ public final class AsciiZeroEndingCharSequence implements CharSequence {
     }
 
     @Override
-    public AsciiOffHeapCharSequence subSequence(int start, int end) {
-        return new AsciiOffHeapCharSequence(address + start, end - start);
+    public OffHeapCharSequence subSequence(int start, int end) {
+        return new OffHeapCharSequence(address + start, end - start);
     }
 
     @Override
@@ -48,8 +48,8 @@ public final class AsciiZeroEndingCharSequence implements CharSequence {
     private void scanForZero(int maxLnegth) {
         int k = 0;
 
-        long maxAddress = address + maxLnegth;
-        for (long i = address; i < maxAddress; i += 1) {
+        long currentAddress = address + maxLnegth;
+        for (long i = address; i < currentAddress; i += 1) {
             char c = (char) OffHeapMemory.getByte(i);
             if (c == 0) {
                 length = k;
