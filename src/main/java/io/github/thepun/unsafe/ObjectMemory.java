@@ -25,6 +25,7 @@ import sun.misc.Unsafe;
  *
  * All methods require fieldOffset which can be retrieved by fieldOffset and cached.
  */
+@SuppressWarnings("unchecked")
 public final class ObjectMemory {
 
     private static final Unsafe UNSAFE_INSTANCE = UnsafeLocator.getUnsafe();
@@ -41,8 +42,24 @@ public final class ObjectMemory {
         }
     }
 
+    public static byte getByte(Object object, long fieldOffset) {
+        return UNSAFE_INSTANCE.getByte(object, fieldOffset);
+    }
+
+    public static short getShort(Object object, long fieldOffset) {
+        return UNSAFE_INSTANCE.getShort(object, fieldOffset);
+    }
+
+    public static char getChar(Object object, long fieldOffset) {
+        return UNSAFE_INSTANCE.getChar(object, fieldOffset);
+    }
+
     public static int getInt(Object object, long fieldOffset) {
         return UNSAFE_INSTANCE.getInt(object, fieldOffset);
+    }
+
+    public static float getFloat(Object object, long fieldOffset) {
+        return UNSAFE_INSTANCE.getFloat(object, fieldOffset);
     }
 
     public static long getLong(Object object, long fieldOffset) {
@@ -57,8 +74,28 @@ public final class ObjectMemory {
         return UNSAFE_INSTANCE.getObject(object, fieldOffset);
     }
 
+    public static <T> T getObjectTyped(Object object, long fieldOffset) {
+        return (T) getObject(object, fieldOffset);
+    }
+
+    public static void setByte(Object object, long fieldOffset, byte newValue) {
+        UNSAFE_INSTANCE.putByte(object, fieldOffset, newValue);
+    }
+
+    public static void setShort(Object object, long fieldOffset, short newValue) {
+        UNSAFE_INSTANCE.putShort(object, fieldOffset, newValue);
+    }
+
+    public static void setChar(Object object, long fieldOffset, char newValue) {
+        UNSAFE_INSTANCE.putChar(object, fieldOffset, newValue);
+    }
+
     public static void setInt(Object object, long fieldOffset, int newValue) {
         UNSAFE_INSTANCE.putInt(object, fieldOffset, newValue);
+    }
+
+    public static void setFloat(Object object, long fieldOffset, float newValue) {
+        UNSAFE_INSTANCE.putFloat(object, fieldOffset, newValue);
     }
 
     public static void setLong(Object object, long fieldOffset, long newValue) {
@@ -73,8 +110,24 @@ public final class ObjectMemory {
         UNSAFE_INSTANCE.putObject(object, fieldOffset, newValue);
     }
 
+    public static int getByteVolatile(Object object, long fieldOffset) {
+        return UNSAFE_INSTANCE.getByteVolatile(object, fieldOffset);
+    }
+
+    public static int getShortVolatile(Object object, long fieldOffset) {
+        return UNSAFE_INSTANCE.getShortVolatile(object, fieldOffset);
+    }
+
+    public static int getCharVolatile(Object object, long fieldOffset) {
+        return UNSAFE_INSTANCE.getCharVolatile(object, fieldOffset);
+    }
+
     public static int getIntVolatile(Object object, long fieldOffset) {
         return UNSAFE_INSTANCE.getIntVolatile(object, fieldOffset);
+    }
+
+    public static float getFloatVolatile(Object object, long fieldOffset) {
+        return UNSAFE_INSTANCE.getFloatVolatile(object, fieldOffset);
     }
 
     public static long getLongVolatile(Object object, long fieldOffset) {
@@ -89,8 +142,28 @@ public final class ObjectMemory {
         return UNSAFE_INSTANCE.getObjectVolatile(object, fieldOffset);
     }
 
+    public static <T> T getObjectVolatileTyped(Object object, long fieldOffset) {
+        return (T) getObjectVolatile(object, fieldOffset);
+    }
+
+    public static void setByteVolatile(Object object, long fieldOffset, byte newValue) {
+        UNSAFE_INSTANCE.putByteVolatile(object, fieldOffset, newValue);
+    }
+
+    public static void setShortVolatile(Object object, long fieldOffset, short newValue) {
+        UNSAFE_INSTANCE.putShortVolatile(object, fieldOffset, newValue);
+    }
+
+    public static void setCharVolatile(Object object, long fieldOffset, char newValue) {
+        UNSAFE_INSTANCE.putCharVolatile(object, fieldOffset, newValue);
+    }
+
     public static void setIntVolatile(Object object, long fieldOffset, int newValue) {
         UNSAFE_INSTANCE.putIntVolatile(object, fieldOffset, newValue);
+    }
+
+    public static void setFloatVolatile(Object object, long fieldOffset, float newValue) {
+        UNSAFE_INSTANCE.putFloatVolatile(object, fieldOffset, newValue);
     }
 
     public static void setLongVolatile(Object object, long fieldOffset, long newValue) {
@@ -105,8 +178,24 @@ public final class ObjectMemory {
         UNSAFE_INSTANCE.putObjectVolatile(object, fieldOffset, newValue);
     }
 
+    public static void setByteOrdered(Object object, long fieldOffset, byte newValue) {
+        UNSAFE_INSTANCE.putByteVolatile(object, fieldOffset, newValue);
+    }
+
+    public static void setShortOrdered(Object object, long fieldOffset, short newValue) {
+        UNSAFE_INSTANCE.putShortVolatile(object, fieldOffset, newValue);
+    }
+
+    public static void setCharOrdered(Object object, long fieldOffset, char newValue) {
+        UNSAFE_INSTANCE.putCharVolatile(object, fieldOffset, newValue);
+    }
+
     public static void setIntOrdered(Object object, long fieldOffset, int newValue) {
         UNSAFE_INSTANCE.putIntVolatile(object, fieldOffset, newValue);
+    }
+
+    public static void setFloatOrdered(Object object, long fieldOffset, float newValue) {
+        UNSAFE_INSTANCE.putFloatVolatile(object, fieldOffset, newValue);
     }
 
     public static void setLongOrdered(Object object, long fieldOffset, long newValue) {

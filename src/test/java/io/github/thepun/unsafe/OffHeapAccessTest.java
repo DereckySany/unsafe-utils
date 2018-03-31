@@ -70,6 +70,18 @@ public class OffHeapAccessTest {
     }
 
     @Test
+    public void getAndSetFloatByOffset() {
+        long address = OffHeapMemory.allocate(100 * TypeSize.ofFloat());
+        long offset = TypeSize.ofFloat() * 67;
+        OffHeapMemory.setFloat(address + offset, 1.23456789f);
+
+        float value = OffHeapMemory.getFloat(address + offset);
+        assertEquals(1.23456789f, value, 0.000000001);
+
+        OffHeapMemory.free(address);
+    }
+
+    @Test
     public void getAndSetLongByOffset() {
         long address = OffHeapMemory.allocate(100 * TypeSize.ofLong());
         long offset = TypeSize.ofLong() * 67;
@@ -77,6 +89,18 @@ public class OffHeapAccessTest {
 
         long value = OffHeapMemory.getLong(address + offset);
         assertEquals(354673567L, value);
+
+        OffHeapMemory.free(address);
+    }
+
+    @Test
+    public void getAndSetDoubleByOffset() {
+        long address = OffHeapMemory.allocate(100 * TypeSize.ofDouble());
+        long offset = TypeSize.ofDouble() * 54;
+        OffHeapMemory.setDouble(address + offset, 0.2468d);
+
+        double value = OffHeapMemory.getDouble(address + offset);
+        assertEquals(0.2468d, value, 0.00001d);
 
         OffHeapMemory.free(address);
     }
