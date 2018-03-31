@@ -164,4 +164,40 @@ public class OffHeapArrayCopyToTest {
             assertEquals(0, longs[i]);
         }
     }
+
+    @Test
+    public void copyFloats() {
+        long address = OffHeapMemory.allocate(10 * TypeSize.ofFloat());
+        for (int i = 0; i < 10; i++) {
+            OffHeapMemory.setFloat(address + i * TypeSize.ofFloat(), i * 7f / 3.33f);
+        }
+
+        float[] floats = new float[10];
+        OffHeapMemory.copyToArray(address, floats);
+
+        for (int i = 0; i < floats.length; i++) {
+            assertEquals(i * 7f / 3.33f, floats[i], 0.00001);
+        }
+    }
+
+    @Test
+    public void copyFloatsWithOffset() {
+        long address = OffHeapMemory.allocate(10 * TypeSize.ofFloat());
+        for (int i = 0; i < 10; i++) {
+            OffHeapMemory.setFloat(address + i * TypeSize.ofFloat(), (i * 3));
+        }
+
+        float[] floats = new float[10];
+        OffHeapMemory.copyToArray(address, floats, 3, 4);
+
+        for (int i = 0; i < 3; i++) {
+            assertEquals(0, floats[i], 0.00001);
+        }
+        for (int i = 3; i < 7; i++) {
+            assertEquals((i - 3) * 3, floats[i], 0.00001);
+        }
+        for (int i = 7; i < 10; i++) {
+            assertEquals(0, floats[i], 0.00001);
+        }
+    }
 }
