@@ -22,7 +22,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ArrayObjectTest {
+public class ArrayObjectAccessTest {
 
     private Object[] array;
 

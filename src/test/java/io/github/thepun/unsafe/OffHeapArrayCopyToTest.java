@@ -58,6 +58,42 @@ public class OffHeapArrayCopyToTest {
     }
 
     @Test
+    public void copyChars() {
+        long address = OffHeapMemory.allocate(10);
+        for (int i = 0; i < 10; i++) {
+            OffHeapMemory.setChar(address + TypeSize.ofChar() * i, (char) (i * 4));
+        }
+
+        char[] chars = new char[10];
+        OffHeapMemory.copyToArray(address, chars);
+
+        for (int i = 0; i < chars.length; i++) {
+            assertEquals(i * 4, chars[i]);
+        }
+    }
+
+    @Test
+    public void copySCharsWithOffset() {
+        long address = OffHeapMemory.allocate(10 * TypeSize.ofChar());
+        for (int i = 0; i < 10; i++) {
+            OffHeapMemory.setChar(address + i * TypeSize.ofChar(), (char) (i * 3));
+        }
+
+        char[] chars = new char[10];
+        OffHeapMemory.copyToArray(address, chars, 3, 4);
+
+        for (int i = 0; i < 3; i++) {
+            assertEquals(0, chars[i]);
+        }
+        for (int i = 3; i < 7; i++) {
+            assertEquals((i - 3) * 3, chars[i]);
+        }
+        for (int i = 7; i < 10; i++) {
+            assertEquals(0, chars[i]);
+        }
+    }
+
+    @Test
     public void copyShorts() {
         long address = OffHeapMemory.allocate(10 * TypeSize.ofShort());
         for (int i = 0; i < 10; i++) {

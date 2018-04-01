@@ -72,19 +72,19 @@ public final class ArrayMemory {
     }
 
     public static short getShort(short[] array, int index) {
-        return UNSAFE_INSTANCE.getShort(array, FIRST_ELEMENT_OFFSET + index);
+        return UNSAFE_INSTANCE.getShort(array, FIRST_ELEMENT_OFFSET + TypeSize.ofShort() * index);
     }
 
     public static void setShort(short[] array, int index, short element) {
-        UNSAFE_INSTANCE.putShort(array, FIRST_ELEMENT_OFFSET + index, element);
+        UNSAFE_INSTANCE.putShort(array, FIRST_ELEMENT_OFFSET + TypeSize.ofShort() * index, element);
     }
 
     public static short getShortVolatile(short[] array, int index) {
-        return UNSAFE_INSTANCE.getShortVolatile(array, FIRST_ELEMENT_OFFSET + index);
+        return UNSAFE_INSTANCE.getShortVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.ofShort() * index);
     }
 
     public static void setShortVolatile(short[] array, int index, short element) {
-        UNSAFE_INSTANCE.putShortVolatile(array, FIRST_ELEMENT_OFFSET + index, element);
+        UNSAFE_INSTANCE.putShortVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.ofShort() * index, element);
     }
 
     public static short getShort(short[] array, long offset) {
@@ -167,6 +167,38 @@ public final class ArrayMemory {
         return UNSAFE_INSTANCE.getAndAddInt(array, offset, element);
     }
 
+    public static float getFloat(short[] array, int index) {
+        return UNSAFE_INSTANCE.getFloat(array, FIRST_ELEMENT_OFFSET + TypeSize.ofFloat() * index);
+    }
+
+    public static void setFloat(short[] array, int index, float element) {
+        UNSAFE_INSTANCE.putFloat(array, FIRST_ELEMENT_OFFSET + TypeSize.ofFloat() * index, element);
+    }
+
+    public static float getFloatVolatile(short[] array, int index) {
+        return UNSAFE_INSTANCE.getFloatVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.ofFloat() * index);
+    }
+
+    public static void setFloatVolatile(short[] array, int index, float element) {
+        UNSAFE_INSTANCE.putFloatVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.ofFloat() * index, element);
+    }
+
+    public static float getFloat(short[] array, long offset) {
+        return UNSAFE_INSTANCE.getFloat(array, offset);
+    }
+
+    public static void setFloat(short[] array, long offset, float element) {
+        UNSAFE_INSTANCE.putFloat(array, offset, element);
+    }
+
+    public static float getFloatVolatile(short[] array, long offset) {
+        return UNSAFE_INSTANCE.getFloatVolatile(array, offset);
+    }
+
+    public static void setFloatVolatile(short[] array, long offset, float element) {
+        UNSAFE_INSTANCE.putFloatVolatile(array, offset, element);
+    }
+
     public static long getLong(long[] array, int index) {
         return getLong(array, FIRST_ELEMENT_OFFSET + TypeSize.ofLong() * index);
     }
@@ -229,6 +261,38 @@ public final class ArrayMemory {
 
     public static long getAndAddLong(long[] array, long offset, long element) {
         return UNSAFE_INSTANCE.getAndAddLong(array, offset, element);
+    }
+
+    public static double getDouble(short[] array, int index) {
+        return UNSAFE_INSTANCE.getFloat(array, FIRST_ELEMENT_OFFSET + TypeSize.ofDouble() * index);
+    }
+
+    public static void setDouble(short[] array, int index, double element) {
+        UNSAFE_INSTANCE.putDouble(array, FIRST_ELEMENT_OFFSET + TypeSize.ofDouble() * index, element);
+    }
+
+    public static double getDoubleVolatile(short[] array, int index) {
+        return UNSAFE_INSTANCE.getDoubleVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.ofDouble() * index);
+    }
+
+    public static void setDoubleVolatile(short[] array, int index, double element) {
+        UNSAFE_INSTANCE.putDoubleVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.ofDouble() * index, element);
+    }
+
+    public static double getDouble(short[] array, long offset) {
+        return UNSAFE_INSTANCE.getDouble(array, offset);
+    }
+
+    public static void setDouble(short[] array, long offset, double element) {
+        UNSAFE_INSTANCE.putDouble(array, offset, element);
+    }
+
+    public static double getDoubleVolatile(short[] array, long offset) {
+        return UNSAFE_INSTANCE.getDoubleVolatile(array, offset);
+    }
+
+    public static void setDoubleVolatile(short[] array, long offset, double element) {
+        UNSAFE_INSTANCE.putDoubleVolatile(array, offset, element);
     }
 
     public static <T> T getObject(T[] array, int index) {
