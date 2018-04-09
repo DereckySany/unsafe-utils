@@ -35,8 +35,8 @@ public class OffHeapAccessTest {
 
     @Test
     public void getAndSetIntByOffset() {
-        long address = OffHeapMemory.allocate(100 * TypeSize.ofInt());
-        long offset = TypeSize.ofInt() * 10;
+        long address = OffHeapMemory.allocate(100 * TypeSize.INT);
+        long offset = TypeSize.INT * 10;
         OffHeapMemory.setInt(address + offset, 123);
 
         int value = OffHeapMemory.getInt(address + offset);
@@ -47,8 +47,8 @@ public class OffHeapAccessTest {
 
     @Test
     public void getAndSetShortByOffset() {
-        long address = OffHeapMemory.allocate(100 * TypeSize.ofShort());
-        long offset = TypeSize.ofShort() * 54;
+        long address = OffHeapMemory.allocate(100 * TypeSize.SHORT);
+        long offset = TypeSize.SHORT * 54;
         OffHeapMemory.setShort(address + offset, (short) 12323);
 
         short value = OffHeapMemory.getShort(address + offset);
@@ -59,8 +59,8 @@ public class OffHeapAccessTest {
 
     @Test
     public void getAndSetCharByOffset() {
-        long address = OffHeapMemory.allocate(100 * TypeSize.ofChar());
-        long offset = TypeSize.ofShort() * 71;
+        long address = OffHeapMemory.allocate(100 * TypeSize.CHAR);
+        long offset = TypeSize.SHORT * 71;
         OffHeapMemory.setChar(address + offset, 'a');
 
         char value = OffHeapMemory.getChar(address + offset);
@@ -71,8 +71,8 @@ public class OffHeapAccessTest {
 
     @Test
     public void getAndSetFloatByOffset() {
-        long address = OffHeapMemory.allocate(100 * TypeSize.ofFloat());
-        long offset = TypeSize.ofFloat() * 67;
+        long address = OffHeapMemory.allocate(100 * TypeSize.FLOAT);
+        long offset = TypeSize.FLOAT * 67;
         OffHeapMemory.setFloat(address + offset, 1.23456789f);
 
         float value = OffHeapMemory.getFloat(address + offset);
@@ -83,8 +83,8 @@ public class OffHeapAccessTest {
 
     @Test
     public void getAndSetLongByOffset() {
-        long address = OffHeapMemory.allocate(100 * TypeSize.ofLong());
-        long offset = TypeSize.ofLong() * 67;
+        long address = OffHeapMemory.allocate(100 * TypeSize.LONG);
+        long offset = TypeSize.LONG * 67;
         OffHeapMemory.setLong(address + offset, 354673567L);
 
         long value = OffHeapMemory.getLong(address + offset);
@@ -95,8 +95,8 @@ public class OffHeapAccessTest {
 
     @Test
     public void getAndSetDoubleByOffset() {
-        long address = OffHeapMemory.allocate(100 * TypeSize.ofDouble());
-        long offset = TypeSize.ofDouble() * 54;
+        long address = OffHeapMemory.allocate(100 * TypeSize.DOUBLE);
+        long offset = TypeSize.DOUBLE * 54;
         OffHeapMemory.setDouble(address + offset, 0.2468d);
 
         double value = OffHeapMemory.getDouble(address + offset);

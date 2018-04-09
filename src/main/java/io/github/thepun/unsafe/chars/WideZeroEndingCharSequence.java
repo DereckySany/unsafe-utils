@@ -44,12 +44,12 @@ public final class WideZeroEndingCharSequence implements CharSequence {
 
     @Override
     public char charAt(int index) {
-        return OffHeapMemory.getChar(address + index * TypeSize.ofChar());
+        return OffHeapMemory.getChar(address + index * TypeSize.CHAR);
     }
 
     @Override
     public WideOffHeapCharSequence subSequence(int start, int end) {
-        return new WideOffHeapCharSequence(address + start * TypeSize.ofChar(), end - start);
+        return new WideOffHeapCharSequence(address + start * TypeSize.CHAR, end - start);
     }
 
     @Override
@@ -62,8 +62,8 @@ public final class WideZeroEndingCharSequence implements CharSequence {
     private void scanForZero(int maxLnegth) {
         int k = 0;
 
-        long currentAddress = address + maxLnegth * TypeSize.ofChar();
-        for (long i = address; i < currentAddress; i += TypeSize.ofChar()) {
+        long currentAddress = address + maxLnegth * TypeSize.CHAR;
+        for (long i = address; i < currentAddress; i += TypeSize.CHAR) {
             char c = OffHeapMemory.getChar(i);
             if (c == 0) {
                 length = k;

@@ -17,42 +17,14 @@ package io.github.thepun.unsafe;
 
 public final class TypeSize {
 
-    private static final int INT_SIZE = 4;
-    private static final int LONG_SIZE = 8;
-    private static final int SHORT_SIZE = 2;
-    private static final int CHAR_SIZE = 2;
-    private static final int FLOAT_SIZE = 4;
-    private static final int DOUBLE_SIZE = 8;
+    public static final int INT = 4;
+    public static final int LONG = 8;
+    public static final int SHORT = 2;
+    public static final int CHAR = 2;
+    public static final int FLOAT = 4;
+    public static final int DOUBLE = 8;
 
-    private static final int REFERENCE_SIZE = UnsafeLocator.getUnsafe().arrayIndexScale(Object[].class);
-
-    public static int ofInt() {
-        return INT_SIZE;
-    }
-
-    public static int ofLong() {
-        return LONG_SIZE;
-    }
-
-    public static int ofShort() {
-        return SHORT_SIZE;
-    }
-
-    public static int ofChar() {
-        return CHAR_SIZE;
-    }
-
-    public static int ofFloat() {
-        return FLOAT_SIZE;
-    }
-
-    public static int ofDouble() {
-        return DOUBLE_SIZE;
-    }
-
-    public static int ofReference() {
-        return REFERENCE_SIZE;
-    }
+    public static final int REFERENCE_ = UnsafeLocator.getUnsafe().arrayIndexScale(Object[].class);
 
 
     private TypeSize() {

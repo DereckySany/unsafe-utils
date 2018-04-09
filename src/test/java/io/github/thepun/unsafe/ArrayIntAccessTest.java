@@ -40,7 +40,7 @@ public class ArrayIntAccessTest {
 
     @Test
     public void getByOffset() {
-        long offset = TypeSize.ofInt() * 2 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.INT * 2 + ArrayMemory.firstElementOffset();
         int value = ArrayMemory.getInt(array, offset);
         assertEquals(2, value);
     }
@@ -53,7 +53,7 @@ public class ArrayIntAccessTest {
 
     @Test
     public void getVolatileByOffset() {
-        long offset = TypeSize.ofInt() * 11 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.INT * 11 + ArrayMemory.firstElementOffset();
         int value = ArrayMemory.getIntVolatile(array, offset);
         assertEquals(11, value);
     }
@@ -67,7 +67,7 @@ public class ArrayIntAccessTest {
 
     @Test
     public void setByOffset() {
-        long offset = TypeSize.ofInt() * 66 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.INT * 66 + ArrayMemory.firstElementOffset();
         ArrayMemory.setInt(array, offset, 4567);
         int value = array[66];
         assertEquals(4567, value);
@@ -82,7 +82,7 @@ public class ArrayIntAccessTest {
 
     @Test
     public void setVolatileByOffset() {
-        long offset = TypeSize.ofInt() * 34 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.INT * 34 + ArrayMemory.firstElementOffset();
         ArrayMemory.setIntVolatile(array, offset, 1234);
         int value = array[34];
         assertEquals(1234, value);
@@ -97,7 +97,7 @@ public class ArrayIntAccessTest {
 
     @Test
     public void setOrderedByOffset() {
-        long offset = TypeSize.ofInt() * 55 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.INT * 55 + ArrayMemory.firstElementOffset();
         ArrayMemory.setIntOrdered(array, offset, 87);
         int value = array[55];
         assertEquals(87, value);
@@ -114,7 +114,7 @@ public class ArrayIntAccessTest {
 
     @Test
     public void casSuccessByOffset() {
-        long offset = TypeSize.ofInt() * 91 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.INT * 91 + ArrayMemory.firstElementOffset();
         boolean cas = ArrayMemory.compareAndSwapInt(array, offset, 91, 2);
         assertTrue(cas);
 
@@ -133,7 +133,7 @@ public class ArrayIntAccessTest {
 
     @Test
     public void casFailureByOffset() {
-        long offset = TypeSize.ofInt() * 43 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.INT * 43 + ArrayMemory.firstElementOffset();
         boolean cas = ArrayMemory.compareAndSwapInt(array, offset, 77, 456);
         assertFalse(cas);
 

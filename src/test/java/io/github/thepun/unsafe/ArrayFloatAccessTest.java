@@ -40,7 +40,7 @@ public class ArrayFloatAccessTest {
 
     @Test
     public void getByOffset() {
-        long offset = TypeSize.ofFloat() * 2 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.FLOAT * 2 + ArrayMemory.firstElementOffset();
         float value = ArrayMemory.getFloat(array, offset);
         assertEquals(2, value, 0.0001);
     }
@@ -53,7 +53,7 @@ public class ArrayFloatAccessTest {
 
     @Test
     public void getVolatileByOffset() {
-        long offset = TypeSize.ofFloat() * 11 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.FLOAT * 11 + ArrayMemory.firstElementOffset();
         float value = ArrayMemory.getFloatVolatile(array, offset);
         assertEquals(11, value, 0.0001);
     }
@@ -67,7 +67,7 @@ public class ArrayFloatAccessTest {
 
     @Test
     public void setByOffset() {
-        long offset = TypeSize.ofFloat() * 66 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.FLOAT * 66 + ArrayMemory.firstElementOffset();
         ArrayMemory.setFloat(array, offset, (float) 45672);
         float value = array[66];
         assertEquals(45672, value, 0.0001);
@@ -82,7 +82,7 @@ public class ArrayFloatAccessTest {
 
     @Test
     public void setVolatileByOffset() {
-        long offset = TypeSize.ofFloat() * 34 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.FLOAT * 34 + ArrayMemory.firstElementOffset();
         ArrayMemory.setFloatVolatile(array, offset, (float) 12345);
         float value = array[34];
         assertEquals(12345, value, 0.0001);

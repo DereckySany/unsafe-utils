@@ -42,7 +42,7 @@ public class ArrayObjectAccessTest {
 
     @Test
     public void getByOffset() {
-        long offset = TypeSize.ofReference() * 2 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.REFERENCE_ * 2 + ArrayMemory.firstElementOffset();
         Object value = ArrayMemory.getObject(array, offset);
         assertEquals(2, value);
     }
@@ -55,7 +55,7 @@ public class ArrayObjectAccessTest {
 
     @Test
     public void getVolatileByOffset() {
-        long offset = TypeSize.ofReference() * 11 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.REFERENCE_ * 11 + ArrayMemory.firstElementOffset();
         Object value = ArrayMemory.getObjectVolatile(array, offset);
         assertEquals(11, value);
     }
@@ -69,7 +69,7 @@ public class ArrayObjectAccessTest {
 
     @Test
     public void setByOffset() {
-        long offset = TypeSize.ofReference() * 66 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.REFERENCE_ * 66 + ArrayMemory.firstElementOffset();
         ArrayMemory.setObject(array, offset, 4567);
         Object value = array[66];
         assertEquals(4567, value);
@@ -84,7 +84,7 @@ public class ArrayObjectAccessTest {
 
     @Test
     public void setVolatileByOffset() {
-        long offset = TypeSize.ofReference() * 34 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.REFERENCE_ * 34 + ArrayMemory.firstElementOffset();
         ArrayMemory.setObjectVolatile(array, offset, 1234);
         Object value = array[34];
         assertEquals(1234, value);
@@ -99,7 +99,7 @@ public class ArrayObjectAccessTest {
 
     @Test
     public void setOrderedByOffset() {
-        long offset = TypeSize.ofReference() * 55 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.REFERENCE_ * 55 + ArrayMemory.firstElementOffset();
         ArrayMemory.setObjectOrdered(array, offset, 87);
         Object value = array[55];
         assertEquals(87, value);
@@ -116,7 +116,7 @@ public class ArrayObjectAccessTest {
 
     @Test
     public void casSuccessByOffset() {
-        long offset = TypeSize.ofReference() * 91 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.REFERENCE_ * 91 + ArrayMemory.firstElementOffset();
         boolean cas = ArrayMemory.compareAndSwapObject(array, offset, 91, 2);
         assertTrue(cas);
 
@@ -135,7 +135,7 @@ public class ArrayObjectAccessTest {
 
     @Test
     public void casFailureByOffset() {
-        long offset = TypeSize.ofReference() * 43 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.REFERENCE_ * 43 + ArrayMemory.firstElementOffset();
         boolean cas = ArrayMemory.compareAndSwapObject(array, offset, 77, 456);
         assertFalse(cas);
 

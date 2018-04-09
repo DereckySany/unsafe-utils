@@ -43,12 +43,12 @@ public final class WideOffHeapCharSequence implements CharSequence {
 
     @Override
     public char charAt(int index) {
-        return OffHeapMemory.getChar(address + index * TypeSize.ofChar());
+        return OffHeapMemory.getChar(address + index * TypeSize.CHAR);
     }
 
     @Override
     public WideOffHeapCharSequence subSequence(int start, int end) {
-        return new WideOffHeapCharSequence(address + start * TypeSize.ofChar(), end - start);
+        return new WideOffHeapCharSequence(address + start * TypeSize.CHAR, end - start);
     }
 
     @Override

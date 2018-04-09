@@ -40,7 +40,7 @@ public class ArrayShortAccessTest {
 
     @Test
     public void getByOffset() {
-        long offset = TypeSize.ofShort() * 2 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.SHORT * 2 + ArrayMemory.firstElementOffset();
         short value = ArrayMemory.getShort(array, offset);
         assertEquals(2, value);
     }
@@ -53,7 +53,7 @@ public class ArrayShortAccessTest {
 
     @Test
     public void getVolatileByOffset() {
-        long offset = TypeSize.ofShort() * 11 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.SHORT * 11 + ArrayMemory.firstElementOffset();
         short value = ArrayMemory.getShortVolatile(array, offset);
         assertEquals(11, value);
     }
@@ -67,7 +67,7 @@ public class ArrayShortAccessTest {
 
     @Test
     public void setByOffset() {
-        long offset = TypeSize.ofShort() * 66 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.SHORT * 66 + ArrayMemory.firstElementOffset();
         ArrayMemory.setShort(array, offset, (short) 4567);
         short value = array[66];
         assertEquals(4567, value);
@@ -82,7 +82,7 @@ public class ArrayShortAccessTest {
 
     @Test
     public void setVolatileByOffset() {
-        long offset = TypeSize.ofShort() * 34 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.SHORT * 34 + ArrayMemory.firstElementOffset();
         ArrayMemory.setShortVolatile(array, offset, (short) 1234);
         short value = array[34];
         assertEquals(1234, value);

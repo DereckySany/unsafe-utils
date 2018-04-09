@@ -40,7 +40,7 @@ public class ArrayDoubleAccessTest {
 
     @Test
     public void getByOffset() {
-        long offset = TypeSize.ofDouble() * 2 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.DOUBLE * 2 + ArrayMemory.firstElementOffset();
         double value = ArrayMemory.getDouble(array, offset);
         assertEquals(2, value, 0.0001);
     }
@@ -53,7 +53,7 @@ public class ArrayDoubleAccessTest {
 
     @Test
     public void getVolatileByOffset() {
-        long offset = TypeSize.ofDouble() * 16 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.DOUBLE * 16 + ArrayMemory.firstElementOffset();
         double value = ArrayMemory.getDoubleVolatile(array, offset);
         assertEquals(16, value, 0.0001);
     }
@@ -67,7 +67,7 @@ public class ArrayDoubleAccessTest {
 
     @Test
     public void setByOffset() {
-        long offset = TypeSize.ofDouble() * 6 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.DOUBLE * 6 + ArrayMemory.firstElementOffset();
         ArrayMemory.setDouble(array, offset, 456721.);
         double value = array[6];
         assertEquals(456721., value, 0.0001);
@@ -82,7 +82,7 @@ public class ArrayDoubleAccessTest {
 
     @Test
     public void setVolatileByOffset() {
-        long offset = TypeSize.ofDouble() * 34 + ArrayMemory.firstElementOffset();
+        long offset = TypeSize.DOUBLE * 34 + ArrayMemory.firstElementOffset();
         ArrayMemory.setDoubleVolatile(array, offset, 123456.);
         double value = array[34];
         assertEquals(123456, value, 0.0001);

@@ -61,7 +61,7 @@ public class OffHeapArrayCopyToTest {
     public void copyChars() {
         long address = OffHeapMemory.allocate(10);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setChar(address + TypeSize.ofChar() * i, (char) (i * 4));
+            OffHeapMemory.setChar(address + TypeSize.CHAR * i, (char) (i * 4));
         }
 
         char[] chars = new char[10];
@@ -74,9 +74,9 @@ public class OffHeapArrayCopyToTest {
 
     @Test
     public void copySCharsWithOffset() {
-        long address = OffHeapMemory.allocate(10 * TypeSize.ofChar());
+        long address = OffHeapMemory.allocate(10 * TypeSize.CHAR);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setChar(address + i * TypeSize.ofChar(), (char) (i * 3));
+            OffHeapMemory.setChar(address + i * TypeSize.CHAR, (char) (i * 3));
         }
 
         char[] chars = new char[10];
@@ -95,9 +95,9 @@ public class OffHeapArrayCopyToTest {
 
     @Test
     public void copyShorts() {
-        long address = OffHeapMemory.allocate(10 * TypeSize.ofShort());
+        long address = OffHeapMemory.allocate(10 * TypeSize.SHORT);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setShort(address + i * TypeSize.ofShort(), (short) (i * 7));
+            OffHeapMemory.setShort(address + i * TypeSize.SHORT, (short) (i * 7));
         }
 
         short[] shorts = new short[10];
@@ -110,9 +110,9 @@ public class OffHeapArrayCopyToTest {
 
     @Test
     public void copyShortsWithOffset() {
-        long address = OffHeapMemory.allocate(10 * TypeSize.ofShort());
+        long address = OffHeapMemory.allocate(10 * TypeSize.SHORT);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setShort(address + i * TypeSize.ofShort(), (short) (i * 3));
+            OffHeapMemory.setShort(address + i * TypeSize.SHORT, (short) (i * 3));
         }
 
         short[] shorts = new short[10];
@@ -131,9 +131,9 @@ public class OffHeapArrayCopyToTest {
 
     @Test
     public void copyInts() {
-        long address = OffHeapMemory.allocate(10 * TypeSize.ofInt());
+        long address = OffHeapMemory.allocate(10 * TypeSize.INT);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setInt(address + i * TypeSize.ofInt(), (i * 7));
+            OffHeapMemory.setInt(address + i * TypeSize.INT, (i * 7));
         }
 
         int[] ints = new int[10];
@@ -146,9 +146,9 @@ public class OffHeapArrayCopyToTest {
 
     @Test
     public void copyIntsWithOffset() {
-        long address = OffHeapMemory.allocate(10 * TypeSize.ofInt());
+        long address = OffHeapMemory.allocate(10 * TypeSize.INT);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setInt(address + i * TypeSize.ofInt(), (i * 3));
+            OffHeapMemory.setInt(address + i * TypeSize.INT, (i * 3));
         }
 
         int[] ints = new int[10];
@@ -167,9 +167,9 @@ public class OffHeapArrayCopyToTest {
 
     @Test
     public void copyLongs() {
-        long address = OffHeapMemory.allocate(10 * TypeSize.ofLong());
+        long address = OffHeapMemory.allocate(10 * TypeSize.LONG);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setLong(address + i * TypeSize.ofLong(), (i * 7));
+            OffHeapMemory.setLong(address + i * TypeSize.LONG, (i * 7));
         }
 
         long[] longs = new long[10];
@@ -182,9 +182,9 @@ public class OffHeapArrayCopyToTest {
 
     @Test
     public void copyLongsWithOffset() {
-        long address = OffHeapMemory.allocate(10 * TypeSize.ofLong());
+        long address = OffHeapMemory.allocate(10 * TypeSize.LONG);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setLong(address + i * TypeSize.ofLong(), (i * 3));
+            OffHeapMemory.setLong(address + i * TypeSize.LONG, (i * 3));
         }
 
         long[] longs = new long[10];
@@ -203,9 +203,9 @@ public class OffHeapArrayCopyToTest {
 
     @Test
     public void copyFloats() {
-        long address = OffHeapMemory.allocate(10 * TypeSize.ofFloat());
+        long address = OffHeapMemory.allocate(10 * TypeSize.FLOAT);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setFloat(address + i * TypeSize.ofFloat(), i * 7f / 3.33f);
+            OffHeapMemory.setFloat(address + i * TypeSize.FLOAT, i * 7f / 3.33f);
         }
 
         float[] floats = new float[10];
@@ -218,9 +218,9 @@ public class OffHeapArrayCopyToTest {
 
     @Test
     public void copyFloatsWithOffset() {
-        long address = OffHeapMemory.allocate(10 * TypeSize.ofFloat());
+        long address = OffHeapMemory.allocate(10 * TypeSize.FLOAT);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setFloat(address + i * TypeSize.ofFloat(), (i * 3));
+            OffHeapMemory.setFloat(address + i * TypeSize.FLOAT, (i * 3));
         }
 
         float[] floats = new float[10];
@@ -239,9 +239,9 @@ public class OffHeapArrayCopyToTest {
 
     @Test
     public void copyDoubles() {
-        long address = OffHeapMemory.allocate(10 * TypeSize.ofDouble());
+        long address = OffHeapMemory.allocate(10 * TypeSize.DOUBLE);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setDouble(address + i * TypeSize.ofDouble(), i * 7f / 3.33f);
+            OffHeapMemory.setDouble(address + i * TypeSize.DOUBLE, i * 7f / 3.33f);
         }
 
         double[] doubles = new double[10];
@@ -254,9 +254,9 @@ public class OffHeapArrayCopyToTest {
 
     @Test
     public void copyDoublesWithOffset() {
-        long address = OffHeapMemory.allocate(10 * TypeSize.ofDouble());
+        long address = OffHeapMemory.allocate(10 * TypeSize.DOUBLE);
         for (int i = 0; i < 10; i++) {
-            OffHeapMemory.setDouble(address + i * TypeSize.ofDouble(), (i * 3));
+            OffHeapMemory.setDouble(address + i * TypeSize.DOUBLE, (i * 3));
         }
 
         double[] doubles = new double[10];
