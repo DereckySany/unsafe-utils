@@ -103,51 +103,51 @@ public final class OffHeapMemory {
     }
 
     public static void copyToArray(long address, char[] array) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.ofChar());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.CHAR);
     }
 
     public static void copyToArray(long address, char[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofChar(), length * TypeSize.ofChar());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.CHAR, length * TypeSize.CHAR);
     }
 
     public static void copyToArray(long address, short[] array) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.ofShort());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.SHORT);
     }
 
     public static void copyToArray(long address, short[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofShort(), length * TypeSize.ofShort());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.SHORT, length * TypeSize.SHORT);
     }
 
     public static void copyToArray(long address, int[] array) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.ofInt());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.INT);
     }
 
     public static void copyToArray(long address, int[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofInt(), length * TypeSize.ofInt());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.INT, length * TypeSize.INT);
     }
 
     public static void copyToArray(long address, float[] array) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.ofFloat());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.FLOAT);
     }
 
     public static void copyToArray(long address, float[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofFloat(), length * TypeSize.ofFloat());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.FLOAT, length * TypeSize.FLOAT);
     }
 
     public static void copyToArray(long address, long[] array) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.ofLong());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.LONG);
     }
 
     public static void copyToArray(long address, long[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofLong(), length * TypeSize.ofLong());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.LONG, length * TypeSize.LONG);
     }
 
     public static void copyToArray(long address, double[] array) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.ofDouble());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset(), array.length * TypeSize.DOUBLE);
     }
 
     public static void copyToArray(long address, double[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofDouble(), length * TypeSize.ofDouble());
+        UNSAFE_INSTANCE.copyMemory(null, address, array, ArrayMemory.firstElementOffset() + offset * TypeSize.DOUBLE, length * TypeSize.DOUBLE);
     }
 
     public static void copyFromArray(long address, byte[] array) {
@@ -159,51 +159,51 @@ public final class OffHeapMemory {
     }
 
     public static void copyFromArray(long address, char[] array) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.ofChar());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.CHAR);
     }
 
     public static void copyFromArray(long address, char[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofChar(), null, address, length * TypeSize.ofChar());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.CHAR, null, address, length * TypeSize.CHAR);
     }
 
     public static void copyFromArray(long address, short[] array) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.ofShort());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.SHORT);
     }
 
     public static void copyFromArray(long address, short[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofShort(), null, address, length * TypeSize.ofShort());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.SHORT, null, address, length * TypeSize.SHORT);
     }
 
     public static void copyFromArray(long address, int[] array) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.ofInt());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.INT);
     }
 
     public static void copyFromArray(long address, int[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofInt(), null, address, length * TypeSize.ofInt());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.INT, null, address, length * TypeSize.INT);
     }
 
     public static void copyFromArray(long address, float[] array) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.ofFloat());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.FLOAT);
     }
 
     public static void copyFromArray(long address, float[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofFloat(), null, address, length * TypeSize.ofFloat());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.FLOAT, null, address, length * TypeSize.FLOAT);
     }
 
     public static void copyFromArray(long address, long[] array) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.ofLong());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.LONG);
     }
 
     public static void copyFromArray(long address, long[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofLong(), null, address, length * TypeSize.ofLong());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.LONG, null, address, length * TypeSize.LONG);
     }
 
     public static void copyFromArray(long address, double[] array) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.ofDouble());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset(), null, address, array.length * TypeSize.DOUBLE);
     }
 
     public static void copyFromArray(long address, double[] array, int offset, int length) {
-        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.ofDouble(), null, address, length * TypeSize.ofDouble());
+        UNSAFE_INSTANCE.copyMemory(array, ArrayMemory.firstElementOffset() + offset * TypeSize.DOUBLE, null, address, length * TypeSize.DOUBLE);
     }
 
     private OffHeapMemory() {

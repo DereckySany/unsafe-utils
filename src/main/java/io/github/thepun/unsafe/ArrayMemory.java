@@ -29,48 +29,110 @@ import sun.misc.Unsafe;
  *
  * Index is ordinary array index.
  */
+@SuppressWarnings("unchecked")
 public final class ArrayMemory {
 
     private static final Unsafe UNSAFE_INSTANCE = UnsafeLocator.getUnsafe();
-    private static final int INT_SIZE = TypeSize.ofInt();
-    private static final int LONG_SIZE = TypeSize.ofLong();
-    private static final int OBJECT_SIZE = TypeSize.ofReference();
     private static final long FIRST_ELEMENT_OFFSET = UNSAFE_INSTANCE.arrayBaseOffset(int[].class);
 
-    public static <T> long firstElementOffset() {
+    public static long firstElementOffset() {
         return FIRST_ELEMENT_OFFSET;
     }
 
+    public static byte getByte(byte[] array, int index) {
+        return UNSAFE_INSTANCE.getByte(array, FIRST_ELEMENT_OFFSET + index);
+    }
+
+    public static void setByte(byte[] array, int index, byte element) {
+        UNSAFE_INSTANCE.putByte(array, FIRST_ELEMENT_OFFSET + index, element);
+    }
+
+    public static byte getByteVolatile(byte[] array, int index) {
+        return UNSAFE_INSTANCE.getByteVolatile(array, FIRST_ELEMENT_OFFSET + index);
+    }
+
+    public static void setByteVolatile(byte[] array, int index, byte element) {
+        UNSAFE_INSTANCE.putByteVolatile(array, FIRST_ELEMENT_OFFSET + index, element);
+    }
+
+    public static byte getByte(byte[] array, long offset) {
+        return UNSAFE_INSTANCE.getByte(array, offset);
+    }
+
+    public static void setByte(byte[] array, long offset, byte element) {
+        UNSAFE_INSTANCE.putByte(array, offset, element);
+    }
+
+    public static byte getByteVolatile(byte[] array, long offset) {
+        return UNSAFE_INSTANCE.getByteVolatile(array, offset);
+    }
+
+    public static void setByteVolatile(byte[] array, long offset, byte element) {
+        UNSAFE_INSTANCE.putByteVolatile(array, offset, element);
+    }
+
+    public static short getShort(short[] array, int index) {
+        return UNSAFE_INSTANCE.getShort(array, FIRST_ELEMENT_OFFSET + TypeSize.SHORT * index);
+    }
+
+    public static void setShort(short[] array, int index, short element) {
+        UNSAFE_INSTANCE.putShort(array, FIRST_ELEMENT_OFFSET + TypeSize.SHORT * index, element);
+    }
+
+    public static short getShortVolatile(short[] array, int index) {
+        return UNSAFE_INSTANCE.getShortVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.SHORT * index);
+    }
+
+    public static void setShortVolatile(short[] array, int index, short element) {
+        UNSAFE_INSTANCE.putShortVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.SHORT * index, element);
+    }
+
+    public static short getShort(short[] array, long offset) {
+        return UNSAFE_INSTANCE.getShort(array, offset);
+    }
+
+    public static void setShort(short[] array, long offset, short element) {
+        UNSAFE_INSTANCE.putShort(array, offset, element);
+    }
+
+    public static short getShortVolatile(short[] array, long offset) {
+        return UNSAFE_INSTANCE.getShortVolatile(array, offset);
+    }
+
+    public static void setShortVolatile(short[] array, long offset, short element) {
+        UNSAFE_INSTANCE.putShortVolatile(array, offset, element);
+    }
+
     public static int getInt(int[] array, int index) {
-        return getInt(array, FIRST_ELEMENT_OFFSET + INT_SIZE * index);
+        return getInt(array, FIRST_ELEMENT_OFFSET + TypeSize.INT * index);
     }
 
     public static void setInt(int[] array, int index, int element) {
-        setInt(array, FIRST_ELEMENT_OFFSET + INT_SIZE * index, element);
+        setInt(array, FIRST_ELEMENT_OFFSET + TypeSize.INT * index, element);
     }
 
     public static int getIntVolatile(int[] array, int index) {
-        return UNSAFE_INSTANCE.getIntVolatile(array, FIRST_ELEMENT_OFFSET + INT_SIZE * index);
+        return UNSAFE_INSTANCE.getIntVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.INT * index);
     }
 
     public static void setIntVolatile(int[] array, int index, int element) {
-        UNSAFE_INSTANCE.putIntVolatile(array, FIRST_ELEMENT_OFFSET + INT_SIZE * index, element);
+        UNSAFE_INSTANCE.putIntVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.INT * index, element);
     }
 
     public static void setIntOrdered(int[] array, int index, int element) {
-        UNSAFE_INSTANCE.putOrderedInt(array, FIRST_ELEMENT_OFFSET + INT_SIZE * index, element);
+        UNSAFE_INSTANCE.putOrderedInt(array, FIRST_ELEMENT_OFFSET + TypeSize.INT * index, element);
     }
 
     public static boolean compareAndSwapInt(int[] array, int index, int expectedElement, int newElement) {
-        return UNSAFE_INSTANCE.compareAndSwapInt(array, FIRST_ELEMENT_OFFSET + INT_SIZE * index, expectedElement, newElement);
+        return UNSAFE_INSTANCE.compareAndSwapInt(array, FIRST_ELEMENT_OFFSET + TypeSize.INT * index, expectedElement, newElement);
     }
 
     public static int getAndSetInt(int[] array, int index, int element) {
-        return UNSAFE_INSTANCE.getAndSetInt(array, FIRST_ELEMENT_OFFSET + INT_SIZE * index, element);
+        return UNSAFE_INSTANCE.getAndSetInt(array, FIRST_ELEMENT_OFFSET + TypeSize.INT * index, element);
     }
 
     public static int getAndAddInt(int[] array, int index, int element) {
-        return UNSAFE_INSTANCE.getAndAddInt(array, FIRST_ELEMENT_OFFSET + INT_SIZE * index, element);
+        return UNSAFE_INSTANCE.getAndAddInt(array, FIRST_ELEMENT_OFFSET + TypeSize.INT * index, element);
     }
 
     public static int getInt(int[] array, long offset) {
@@ -105,36 +167,68 @@ public final class ArrayMemory {
         return UNSAFE_INSTANCE.getAndAddInt(array, offset, element);
     }
 
+    public static float getFloat(float[] array, int index) {
+        return UNSAFE_INSTANCE.getFloat(array, FIRST_ELEMENT_OFFSET + TypeSize.FLOAT * index);
+    }
+
+    public static void setFloat(float[] array, int index, float element) {
+        UNSAFE_INSTANCE.putFloat(array, FIRST_ELEMENT_OFFSET + TypeSize.FLOAT * index, element);
+    }
+
+    public static float getFloatVolatile(float[] array, int index) {
+        return UNSAFE_INSTANCE.getFloatVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.FLOAT * index);
+    }
+
+    public static void setFloatVolatile(float[] array, int index, float element) {
+        UNSAFE_INSTANCE.putFloatVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.FLOAT * index, element);
+    }
+
+    public static float getFloat(float[] array, long offset) {
+        return UNSAFE_INSTANCE.getFloat(array, offset);
+    }
+
+    public static void setFloat(float[] array, long offset, float element) {
+        UNSAFE_INSTANCE.putFloat(array, offset, element);
+    }
+
+    public static float getFloatVolatile(float[] array, long offset) {
+        return UNSAFE_INSTANCE.getFloatVolatile(array, offset);
+    }
+
+    public static void setFloatVolatile(float[] array, long offset, float element) {
+        UNSAFE_INSTANCE.putFloatVolatile(array, offset, element);
+    }
+
     public static long getLong(long[] array, int index) {
-        return getLong(array, FIRST_ELEMENT_OFFSET + LONG_SIZE * index);
+        return getLong(array, FIRST_ELEMENT_OFFSET + TypeSize.LONG * index);
     }
 
     public static void setLong(long[] array, int index, long element) {
-        setLong(array, FIRST_ELEMENT_OFFSET + LONG_SIZE * index, element);
+        setLong(array, FIRST_ELEMENT_OFFSET + TypeSize.LONG * index, element);
     }
 
     public static long getLongVolatile(long[] array, int index) {
-        return UNSAFE_INSTANCE.getLongVolatile(array, FIRST_ELEMENT_OFFSET + LONG_SIZE * index);
+        return UNSAFE_INSTANCE.getLongVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.LONG * index);
     }
 
     public static void setLongVolatile(long[] array, int index, long element) {
-        UNSAFE_INSTANCE.putLongVolatile(array, FIRST_ELEMENT_OFFSET + LONG_SIZE * index, element);
+        UNSAFE_INSTANCE.putLongVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.LONG * index, element);
     }
 
     public static void setLongOrdered(long[] array, int index, long element) {
-        UNSAFE_INSTANCE.putOrderedLong(array, FIRST_ELEMENT_OFFSET + LONG_SIZE * index, element);
+        UNSAFE_INSTANCE.putOrderedLong(array, FIRST_ELEMENT_OFFSET + TypeSize.LONG * index, element);
     }
 
     public static boolean compareAndSwapLong(long[] array, int index, long expectedElement, long newElement) {
-        return UNSAFE_INSTANCE.compareAndSwapLong(array, FIRST_ELEMENT_OFFSET + LONG_SIZE * index, expectedElement, newElement);
+        return UNSAFE_INSTANCE.compareAndSwapLong(array, FIRST_ELEMENT_OFFSET + TypeSize.LONG * index, expectedElement, newElement);
     }
 
     public static long getAndSetLong(long[] array, int index, long element) {
-        return UNSAFE_INSTANCE.getAndSetLong(array, FIRST_ELEMENT_OFFSET + LONG_SIZE * index, element);
+        return UNSAFE_INSTANCE.getAndSetLong(array, FIRST_ELEMENT_OFFSET + TypeSize.LONG * index, element);
     }
 
     public static long getAndAddLong(long[] array, int index, long element) {
-        return UNSAFE_INSTANCE.getAndAddLong(array, FIRST_ELEMENT_OFFSET + LONG_SIZE * index, element);
+        return UNSAFE_INSTANCE.getAndAddLong(array, FIRST_ELEMENT_OFFSET + TypeSize.LONG * index, element);
     }
 
     public static long getLong(long[] array, long offset) {
@@ -169,32 +263,64 @@ public final class ArrayMemory {
         return UNSAFE_INSTANCE.getAndAddLong(array, offset, element);
     }
 
+    public static double getDouble(double[] array, int index) {
+        return UNSAFE_INSTANCE.getDouble(array, FIRST_ELEMENT_OFFSET + TypeSize.DOUBLE * index);
+    }
+
+    public static void setDouble(double[] array, int index, double element) {
+        UNSAFE_INSTANCE.putDouble(array, FIRST_ELEMENT_OFFSET + TypeSize.DOUBLE * index, element);
+    }
+
+    public static double getDoubleVolatile(double[] array, int index) {
+        return UNSAFE_INSTANCE.getDoubleVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.DOUBLE * index);
+    }
+
+    public static void setDoubleVolatile(double[] array, int index, double element) {
+        UNSAFE_INSTANCE.putDoubleVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.DOUBLE * index, element);
+    }
+
+    public static double getDouble(double[] array, long offset) {
+        return UNSAFE_INSTANCE.getDouble(array, offset);
+    }
+
+    public static void setDouble(double[] array, long offset, double element) {
+        UNSAFE_INSTANCE.putDouble(array, offset, element);
+    }
+
+    public static double getDoubleVolatile(double[] array, long offset) {
+        return UNSAFE_INSTANCE.getDoubleVolatile(array, offset);
+    }
+
+    public static void setDoubleVolatile(double[] array, long offset, double element) {
+        UNSAFE_INSTANCE.putDoubleVolatile(array, offset, element);
+    }
+
     public static <T> T getObject(T[] array, int index) {
-        return getObject(array, FIRST_ELEMENT_OFFSET + OBJECT_SIZE * index);
+        return getObject(array, FIRST_ELEMENT_OFFSET + TypeSize.REFERENCE_ * index);
     }
 
     public static <T> void setObject(T[] array, int index, T element) {
-        setObject(array, FIRST_ELEMENT_OFFSET + OBJECT_SIZE * index, element);
+        setObject(array, FIRST_ELEMENT_OFFSET + TypeSize.REFERENCE_ * index, element);
     }
 
     public static <T> Object getObjectVolatile(T[] array, int index) {
-        return UNSAFE_INSTANCE.getObjectVolatile(array, FIRST_ELEMENT_OFFSET + OBJECT_SIZE * index);
+        return UNSAFE_INSTANCE.getObjectVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.REFERENCE_ * index);
     }
 
     public static <T> void setObjectVolatile(T[] array, int index, T element) {
-        UNSAFE_INSTANCE.putObjectVolatile(array, FIRST_ELEMENT_OFFSET + OBJECT_SIZE * index, element);
+        UNSAFE_INSTANCE.putObjectVolatile(array, FIRST_ELEMENT_OFFSET + TypeSize.REFERENCE_ * index, element);
     }
 
     public static <T> void setObjectOrdered(T[] array, int index, T element) {
-        UNSAFE_INSTANCE.putOrderedObject(array, FIRST_ELEMENT_OFFSET + OBJECT_SIZE * index, element);
+        UNSAFE_INSTANCE.putOrderedObject(array, FIRST_ELEMENT_OFFSET + TypeSize.REFERENCE_ * index, element);
     }
 
     public static <T> boolean compareAndSwapObject(T[] array, int index, T expectedElement, T newElement) {
-        return UNSAFE_INSTANCE.compareAndSwapObject(array, FIRST_ELEMENT_OFFSET + OBJECT_SIZE * index, expectedElement, newElement);
+        return UNSAFE_INSTANCE.compareAndSwapObject(array, FIRST_ELEMENT_OFFSET + TypeSize.REFERENCE_ * index, expectedElement, newElement);
     }
 
     public static <T> T getAndSetObject(T[] array, int index, T element) {
-        return (T) UNSAFE_INSTANCE.getAndSetObject(array, FIRST_ELEMENT_OFFSET + OBJECT_SIZE * index, element);
+        return (T) UNSAFE_INSTANCE.getAndSetObject(array, FIRST_ELEMENT_OFFSET + TypeSize.REFERENCE_ * index, element);
     }
 
     public static <T> T getObject(T[] array, long offset) {

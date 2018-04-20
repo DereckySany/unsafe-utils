@@ -22,13 +22,13 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ArrayIntTest {
+public class ArrayObjectAccessTest {
 
-    private int[] array;
+    private Object[] array;
 
     @Before
     public void prepareArray() {
-        array = new int[100];
+        array = new Object[100];
         for (int i = 0; i < 100; i++) {
             array[i] = i;
         }
@@ -36,110 +36,110 @@ public class ArrayIntTest {
 
     @Test
     public void getByIndex() {
-        int value = ArrayMemory.getInt(array, 4);
+        Object value = ArrayMemory.getObject(array, 4);
         assertEquals(4, value);
     }
 
     @Test
     public void getByOffset() {
-        long offset = TypeSize.ofInt() * 2 + ArrayMemory.firstElementOffset();
-        int value = ArrayMemory.getInt(array, offset);
+        long offset = TypeSize.REFERENCE_ * 2 + ArrayMemory.firstElementOffset();
+        Object value = ArrayMemory.getObject(array, offset);
         assertEquals(2, value);
     }
 
     @Test
     public void getVolatileByIndex() {
-        int value = ArrayMemory.getIntVolatile(array, 10);
+        Object value = ArrayMemory.getObjectVolatile(array, 10);
         assertEquals(10, value);
     }
 
     @Test
     public void getVolatileByOffset() {
-        long offset = TypeSize.ofInt() * 11 + ArrayMemory.firstElementOffset();
-        int value = ArrayMemory.getIntVolatile(array, offset);
+        long offset = TypeSize.REFERENCE_ * 11 + ArrayMemory.firstElementOffset();
+        Object value = ArrayMemory.getObjectVolatile(array, offset);
         assertEquals(11, value);
     }
 
     @Test
     public void setByIndex() {
-        ArrayMemory.setInt(array, 7, 99);
-        int value = array[7];
+        ArrayMemory.setObject(array, 7, 99);
+        Object value = array[7];
         assertEquals(99, value);
     }
 
     @Test
     public void setByOffset() {
-        long offset = TypeSize.ofInt() * 66 + ArrayMemory.firstElementOffset();
-        ArrayMemory.setInt(array, offset, 4567);
-        int value = array[66];
+        long offset = TypeSize.REFERENCE_ * 66 + ArrayMemory.firstElementOffset();
+        ArrayMemory.setObject(array, offset, 4567);
+        Object value = array[66];
         assertEquals(4567, value);
     }
 
     @Test
     public void setVolatileByIndex() {
-        ArrayMemory.setIntVolatile(array, 3, 88);
-        int value = array[3];
+        ArrayMemory.setObjectVolatile(array, 3, 88);
+        Object value = array[3];
         assertEquals(88, value);
     }
 
     @Test
     public void setVolatileByOffset() {
-        long offset = TypeSize.ofInt() * 34 + ArrayMemory.firstElementOffset();
-        ArrayMemory.setIntVolatile(array, offset, 1234);
-        int value = array[34];
+        long offset = TypeSize.REFERENCE_ * 34 + ArrayMemory.firstElementOffset();
+        ArrayMemory.setObjectVolatile(array, offset, 1234);
+        Object value = array[34];
         assertEquals(1234, value);
     }
 
     @Test
     public void setOrderedByIndex() {
-        ArrayMemory.setIntOrdered(array, 5, 23);
-        int value = array[5];
+        ArrayMemory.setObjectOrdered(array, 5, 23);
+        Object value = array[5];
         assertEquals(23, value);
     }
 
     @Test
     public void setOrderedByOffset() {
-        long offset = TypeSize.ofInt() * 55 + ArrayMemory.firstElementOffset();
-        ArrayMemory.setIntOrdered(array, offset, 87);
-        int value = array[55];
+        long offset = TypeSize.REFERENCE_ * 55 + ArrayMemory.firstElementOffset();
+        ArrayMemory.setObjectOrdered(array, offset, 87);
+        Object value = array[55];
         assertEquals(87, value);
     }
 
     @Test
     public void casSuccessByIndex() {
-        boolean cas = ArrayMemory.compareAndSwapInt(array, 75, 75, 99);
+        boolean cas = ArrayMemory.compareAndSwapObject(array, 75, 75, 99);
         assertTrue(cas);
 
-        int value = array[75];
+        Object value = array[75];
         assertEquals(99, value);
     }
 
     @Test
     public void casSuccessByOffset() {
-        long offset = TypeSize.ofInt() * 91 + ArrayMemory.firstElementOffset();
-        boolean cas = ArrayMemory.compareAndSwapInt(array, offset, 91, 2);
+        long offset = TypeSize.REFERENCE_ * 91 + ArrayMemory.firstElementOffset();
+        boolean cas = ArrayMemory.compareAndSwapObject(array, offset, 91, 2);
         assertTrue(cas);
 
-        int value = array[91];
+        Object value = array[91];
         assertEquals(2, value);
     }
 
     @Test
     public void casFailureByIndex() {
-        boolean cas = ArrayMemory.compareAndSwapInt(array, 55, 54, 123);
+        boolean cas = ArrayMemory.compareAndSwapObject(array, 55, 54, 123);
         assertFalse(cas);
 
-        int value = array[55];
+        Object value = array[55];
         assertEquals(55, value);
     }
 
     @Test
     public void casFailureByOffset() {
-        long offset = TypeSize.ofInt() * 43 + ArrayMemory.firstElementOffset();
-        boolean cas = ArrayMemory.compareAndSwapInt(array, offset, 77, 456);
+        long offset = TypeSize.REFERENCE_ * 43 + ArrayMemory.firstElementOffset();
+        boolean cas = ArrayMemory.compareAndSwapObject(array, offset, 77, 456);
         assertFalse(cas);
 
-        int value = array[43];
+        Object value = array[43];
         assertEquals(43, value);
     }
 

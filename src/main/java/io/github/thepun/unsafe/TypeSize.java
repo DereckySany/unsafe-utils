@@ -15,55 +15,16 @@
  */
 package io.github.thepun.unsafe;
 
-import sun.misc.Unsafe;
-
 public final class TypeSize {
 
-    private static final int INT_SIZE;
-    private static final int LONG_SIZE;
-    private static final int SHORT_SIZE;
-    private static final int CHAR_SIZE;
-    private static final int FLOAT_SIZE;
-    private static final int DOUBLE_SIZE;
-    private static final int REFERENCE_SIZE;
-    static {
-        Unsafe unsafe = UnsafeLocator.getUnsafe();
-        INT_SIZE = unsafe.arrayIndexScale(int[].class);
-        LONG_SIZE = unsafe.arrayIndexScale(long[].class);
-        SHORT_SIZE = unsafe.arrayIndexScale(short[].class);
-        CHAR_SIZE = unsafe.arrayIndexScale(char[].class);
-        FLOAT_SIZE = unsafe.arrayIndexScale(float[].class);
-        DOUBLE_SIZE = unsafe.arrayIndexScale(double[].class);
-        REFERENCE_SIZE = unsafe.arrayIndexScale(Object[].class);
-    }
+    public static final int INT = 4;
+    public static final int LONG = 8;
+    public static final int SHORT = 2;
+    public static final int CHAR = 2;
+    public static final int FLOAT = 4;
+    public static final int DOUBLE = 8;
 
-    public static int ofInt() {
-        return INT_SIZE;
-    }
-
-    public static int ofLong() {
-        return LONG_SIZE;
-    }
-
-    public static int ofShort() {
-        return SHORT_SIZE;
-    }
-
-    public static int ofChar() {
-        return CHAR_SIZE;
-    }
-
-    public static int ofFloat() {
-        return FLOAT_SIZE;
-    }
-
-    public static int ofDouble() {
-        return DOUBLE_SIZE;
-    }
-
-    public static int ofReference() {
-        return REFERENCE_SIZE;
-    }
+    public static final int REFERENCE_ = UnsafeLocator.getUnsafe().arrayIndexScale(Object[].class);
 
 
     private TypeSize() {
