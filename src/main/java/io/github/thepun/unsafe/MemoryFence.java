@@ -26,6 +26,9 @@ public final class MemoryFence {
 
     /**
      * LoadLoad/LoadStore memory barrier
+     *
+     * Ensures lack of reordering of loads before the fence
+     * with loads or stores after the fence
      */
     public static void load() {
         UNSAFE_INSTANCE.loadFence();
@@ -33,6 +36,9 @@ public final class MemoryFence {
 
     /**
      * LoadStore/StoreStore memory barrier
+     *
+     * Ensures lack of reordering of stores before the fence
+     * with loads or stores after the fence.
      */
     public static void store() {
         UNSAFE_INSTANCE.storeFence();
@@ -40,6 +46,9 @@ public final class MemoryFence {
 
     /**
      * Full memory barrier
+     *
+     * Ensures lack of reordering of loads or stores before the fence
+     * with loads or stores after the fence.
      */
     public static void full() {
         UNSAFE_INSTANCE.fullFence();
