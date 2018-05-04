@@ -37,6 +37,11 @@ public final class OffHeapCharSequence implements CharSequence {
         this.length = length;
     }
 
+    public void setAddress(OffHeapCharSequence offHeapCharSequence) {
+        this.address = offHeapCharSequence.address;
+        this.length = offHeapCharSequence.length;
+    }
+
     public long getOffheapAddress() {
         return address;
     }
