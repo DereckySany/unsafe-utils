@@ -51,10 +51,10 @@ Packages are available through __Maven Central__ repository.
 <dependency>
     <groupId>io.github.thepun</groupId>
     <artifactId>unsafe-utils</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
 ###### Gradle 
 ```
-compile group: 'io.github.thepun', name: 'unsafe-utils', version: '1.0'
+compile group: 'io.github.thepun', name: 'unsafe-utils', version: '1.1'
 ```
