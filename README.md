@@ -1,5 +1,5 @@
 # Unsafe utils 
-available in [pt-br](README-PT.md)
+*Read this in other languages: [English](README.md), [Portuguese](README-PT.md)
 
 Allows more convenient access to java's Unsafe API.
 
