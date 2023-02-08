@@ -1,4 +1,5 @@
 # Utilitários inseguros
+*Leia em outros idiomas: [Inglês](README.md), [Português](README-PT.md)
 
 Permite um acesso mais conveniente à API insegura do java.
 
