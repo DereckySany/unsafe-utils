@@ -1,5 +1,5 @@
 # Unsafe utils 
-available in [pt-br](.master/README-PT.md)
+available in [pt-br](master/README-PT.md)
 
 Allows more convenient access to java's Unsafe API.
 
